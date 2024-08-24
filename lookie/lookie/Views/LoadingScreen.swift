@@ -9,6 +9,8 @@ struct LoadingScreen: View {
     
     var body: some View {
         makeContent()
+            .background(.backgroundWhite)
+            .ignoresSafeArea()
     }
     
     private func makeContent() -> some View {
@@ -25,7 +27,7 @@ struct LoadingScreen: View {
             VStack(spacing: 0) {
                 Spacer()
                 makeAlertText()
-                    .padding(.bottom, 0)
+                    .padding(.bottom, 38)
             }
         }
         .fullScreenCover(isPresented: $isShowNext) {
@@ -39,6 +41,7 @@ struct LoadingScreen: View {
                 isLoading.toggle()
             }
         }
+        .frame(maxWidth: .infinity)
     }
     
     private func makeLoader() -> some View {

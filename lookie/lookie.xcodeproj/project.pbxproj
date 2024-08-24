@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		215912D62C7A09C100930D05 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912D52C7A09C100930D05 /* AppConstants.swift */; };
 		215912D82C7A0BE600930D05 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912D72C7A0BE600930D05 /* RequestManager.swift */; };
+		215912DD2C7A5AB300930D05 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912DC2C7A5AB300930D05 /* TabBar.swift */; };
+		215912DF2C7A5E6600930D05 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912DE2C7A5E6600930D05 /* Feed.swift */; };
+		215912E12C7A5F9B00930D05 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912E02C7A5F9B00930D05 /* Enums.swift */; };
 		2167E7032C63B10E001E4325 /* ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167E7022C63B10E001E4325 /* ProjectApp.swift */; };
 		2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167E7042C63B10E001E4325 /* LoadingScreen.swift */; };
 		2167E7072C63B10F001E4325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167E7062C63B10F001E4325 /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 /* Begin PBXFileReference section */
 		215912D52C7A09C100930D05 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		215912D72C7A0BE600930D05 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		215912DC2C7A5AB300930D05 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		215912DE2C7A5E6600930D05 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		215912E02C7A5F9B00930D05 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		2167E6FF2C63B10E001E4325 /* lookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2167E7022C63B10E001E4325 /* ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectApp.swift; sourceTree = "<group>"; };
 		2167E7042C63B10E001E4325 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
@@ -39,6 +45,7 @@
 		215912CF2C7A08E000930D05 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				215912E02C7A5F9B00930D05 /* Enums.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -71,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				2167E7042C63B10E001E4325 /* LoadingScreen.swift */,
+				215912DC2C7A5AB300930D05 /* TabBar.swift */,
+				215912DE2C7A5E6600930D05 /* Feed.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,9 +201,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */,
+				215912DF2C7A5E6600930D05 /* Feed.swift in Sources */,
 				215912D62C7A09C100930D05 /* AppConstants.swift in Sources */,
 				2167E7032C63B10E001E4325 /* ProjectApp.swift in Sources */,
+				215912E12C7A5F9B00930D05 /* Enums.swift in Sources */,
 				215912D82C7A0BE600930D05 /* RequestManager.swift in Sources */,
+				215912DD2C7A5AB300930D05 /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
