@@ -1,9 +1,3 @@
-//
-//  lookieApp.swift
-//  lookie
-//
-//  Created by Руслан Парастаев on 07.08.2024.
-//
 
 import SwiftUI
 
@@ -11,7 +5,7 @@ import SwiftUI
 struct ProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoadingScreen()
         }
     }
 }

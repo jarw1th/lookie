@@ -53,6 +53,7 @@
 		215912D22C7A092000930D05 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				215912D92C7A0DF600930D05 /* Fonts */,
 				2167E7062C63B10F001E4325 /* Assets.xcassets */,
 			);
 			path = Assets;
@@ -72,6 +73,13 @@
 				2167E7042C63B10E001E4325 /* LoadingScreen.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		215912D92C7A0DF600930D05 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		2167E6F62C63B10E001E4325 = {
