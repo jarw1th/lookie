@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct lookieApp: App {
+struct ProjectApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
