@@ -3,6 +3,8 @@ import SwiftUI
 
 struct TabBar: View {
     
+    @EnvironmentObject var viewModel: ViewModel
+    
     @State private var tab: TabType = .home
     
     var body: some View {

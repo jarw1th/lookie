@@ -9,9 +9,9 @@ final class RequestManager: ObservableObject {
     @Published private(set) var alertType: String = ""
     
     @discardableResult
-    func checkInternetConnectivity(withDelay: Bool = false) -> Bool {
+    func checkInternetConnectivity(withDelay: Bool = false) async -> Bool {
         if withDelay {
-            Thread.sleep(forTimeInterval: 2.0)
+            try? await Task.sleep(nanoseconds: 2000000000)
         }
         
         var zeroAddress = sockaddr_in()

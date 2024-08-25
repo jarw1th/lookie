@@ -12,6 +12,13 @@
 		215912DD2C7A5AB300930D05 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912DC2C7A5AB300930D05 /* TabBar.swift */; };
 		215912DF2C7A5E6600930D05 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912DE2C7A5E6600930D05 /* Feed.swift */; };
 		215912E12C7A5F9B00930D05 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912E02C7A5F9B00930D05 /* Enums.swift */; };
+		215912E42C7A762B00930D05 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 215912E32C7A762B00930D05 /* FirebaseAnalytics */; };
+		215912E62C7A762B00930D05 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 215912E52C7A762B00930D05 /* FirebaseAuth */; };
+		215912E82C7A762B00930D05 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 215912E72C7A762B00930D05 /* FirebaseFirestore */; };
+		215912EA2C7B153A00930D05 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912E92C7B153A00930D05 /* ViewModel.swift */; };
+		215912EC2C7B1BA500930D05 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912EB2C7B1BA500930D05 /* Authorization.swift */; };
+		215912EE2C7B26DA00930D05 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912ED2C7B26DA00930D05 /* User.swift */; };
+		215912F02C7B2B0300930D05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 215912EF2C7B2B0300930D05 /* GoogleService-Info.plist */; };
 		2167E7032C63B10E001E4325 /* ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167E7022C63B10E001E4325 /* ProjectApp.swift */; };
 		2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167E7042C63B10E001E4325 /* LoadingScreen.swift */; };
 		2167E7072C63B10F001E4325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167E7062C63B10F001E4325 /* Assets.xcassets */; };
@@ -24,6 +31,10 @@
 		215912DC2C7A5AB300930D05 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		215912DE2C7A5E6600930D05 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		215912E02C7A5F9B00930D05 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		215912E92C7B153A00930D05 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		215912EB2C7B1BA500930D05 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
+		215912ED2C7B26DA00930D05 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		215912EF2C7B2B0300930D05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2167E6FF2C63B10E001E4325 /* lookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2167E7022C63B10E001E4325 /* ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectApp.swift; sourceTree = "<group>"; };
 		2167E7042C63B10E001E4325 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
@@ -36,6 +47,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215912E42C7A762B00930D05 /* FirebaseAnalytics in Frameworks */,
+				215912E62C7A762B00930D05 /* FirebaseAuth in Frameworks */,
+				215912E82C7A762B00930D05 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +67,7 @@
 		215912D02C7A08EF00930D05 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				215912ED2C7B26DA00930D05 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -70,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				215912D72C7A0BE600930D05 /* RequestManager.swift */,
+				215912E92C7B153A00930D05 /* ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -78,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				2167E7042C63B10E001E4325 /* LoadingScreen.swift */,
+				215912EB2C7B1BA500930D05 /* Authorization.swift */,
 				215912DC2C7A5AB300930D05 /* TabBar.swift */,
 				215912DE2C7A5E6600930D05 /* Feed.swift */,
 			);
@@ -118,6 +135,7 @@
 				2167E7082C63B10F001E4325 /* Preview Content */,
 				2167E7022C63B10E001E4325 /* ProjectApp.swift */,
 				215912D52C7A09C100930D05 /* AppConstants.swift */,
+				215912EF2C7B2B0300930D05 /* GoogleService-Info.plist */,
 			);
 			path = lookie;
 			sourceTree = "<group>";
@@ -146,6 +164,11 @@
 			dependencies = (
 			);
 			name = lookie;
+			packageProductDependencies = (
+				215912E32C7A762B00930D05 /* FirebaseAnalytics */,
+				215912E52C7A762B00930D05 /* FirebaseAuth */,
+				215912E72C7A762B00930D05 /* FirebaseFirestore */,
+			);
 			productName = lookie;
 			productReference = 2167E6FF2C63B10E001E4325 /* lookie.app */;
 			productType = "com.apple.product-type.application";
@@ -174,6 +197,9 @@
 				Base,
 			);
 			mainGroup = 2167E6F62C63B10E001E4325;
+			packageReferences = (
+				215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 2167E7002C63B10E001E4325 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -188,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215912F02C7B2B0300930D05 /* GoogleService-Info.plist in Resources */,
 				2167E70A2C63B10F001E4325 /* Preview Assets.xcassets in Resources */,
 				2167E7072C63B10F001E4325 /* Assets.xcassets in Resources */,
 			);
@@ -206,6 +233,9 @@
 				2167E7032C63B10E001E4325 /* ProjectApp.swift in Sources */,
 				215912E12C7A5F9B00930D05 /* Enums.swift in Sources */,
 				215912D82C7A0BE600930D05 /* RequestManager.swift in Sources */,
+				215912EC2C7B1BA500930D05 /* Authorization.swift in Sources */,
+				215912EA2C7B153A00930D05 /* ViewModel.swift in Sources */,
+				215912EE2C7B26DA00930D05 /* User.swift in Sources */,
 				215912DD2C7A5AB300930D05 /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +444,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		215912E32C7A762B00930D05 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		215912E52C7A762B00930D05 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		215912E72C7A762B00930D05 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2167E6F72C63B10E001E4325 /* Project object */;
 }
