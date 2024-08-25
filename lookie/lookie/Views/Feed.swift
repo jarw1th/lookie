@@ -16,6 +16,7 @@ struct Feed: View {
                 .padding(.top, 24)
                 .padding(.horizontal, 20)
             makeFeedTypeBar()
+            makeFeed()
             Spacer()
         }
     }
@@ -135,6 +136,17 @@ struct Feed: View {
                     )
             }
         }
+    }
+    
+    private func makeFeed() -> some View {
+        LazyVGrid(columns: [GridItem(), GridItem()], content: {
+            Image("Home")
+            Image("Home")
+            Image("Home")
+            Image("Home")
+            Image("Home")
+            Image("Home")
+        })
     }
     
 }

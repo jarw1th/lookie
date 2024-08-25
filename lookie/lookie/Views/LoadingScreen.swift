@@ -3,6 +3,8 @@ import SwiftUI
 
 struct LoadingScreen: View {
     
+    @State private var viewModel: ViewModel = ViewModel()
+    
     @StateObject private var requestManager = RequestManager.shared
     @State private var isLoading: Bool = true
     @State private var isShowNext: Bool = false
@@ -31,15 +33,16 @@ struct LoadingScreen: View {
             }
         }
         .fullScreenCover(isPresented: $isShowNext) {
-            
-        }
-        .onChange(of: isLoading) { value in
-            guard (value == true) else { return }
-            if requestManager.checkInternetConnectivity(withDelay: true) {
-                isShowNext.toggle()
+            if viewModel.currentUser != nil {
+                TabBar()
+                    .environmentObject(viewModel)
             } else {
-                isLoading.toggle()
+                Authorization()
+                    .environmentObject(viewModel)
             }
+        }
+        .onAppear {
+            checkConnectivityAndProceed()
         }
         .frame(maxWidth: .infinity)
     }
@@ -52,21 +55,32 @@ struct LoadingScreen: View {
     }
     
     private func makeAlertText() -> some View {
-        Text("fashion is here")
+        Text(isLoading ? "fashion is here" : "no internet")
             .font(.system(size: 16, weight: .regular))
             .multilineTextAlignment(.center)
-            .foregroundStyle(.darkBlue)
+            .foregroundStyle(isLoading ? .darkBlue : .softRed)
     }
     
     private func makeAlertButton() -> some View {
         Button {
             isLoading.toggle()
+            checkConnectivityAndProceed()
         } label: {
             Text("Reload")
                 .underline()
                 .font(.system(size: 24, weight: .regular))
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.darkBlue)
+        }
+    }
+    
+    private func checkConnectivityAndProceed() {
+        Task {
+            if await requestManager.checkInternetConnectivity(withDelay: true) {
+                isShowNext = true
+            } else {
+                isLoading = false
+            }
         }
     }
     
