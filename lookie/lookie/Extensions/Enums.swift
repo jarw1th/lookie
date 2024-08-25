@@ -38,3 +38,18 @@ enum FeedType: CaseIterable {
     }
     
 }
+
+enum AuthorizationErrorType {
+    
+    case password, email
+    
+    func text() -> String {
+        switch self {
+        case .password:
+            return "invalid password*"
+        case .email:
+            return "invalid email*"
+        }
+    }
+    
+}

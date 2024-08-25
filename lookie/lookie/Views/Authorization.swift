@@ -10,6 +10,7 @@ struct Authorization: View {
     
     @State private var isLoading: Bool = false
     @State private var isShowNext: Bool = false
+    @State private var error: AuthorizationErrorType?
     
     var body: some View {
         makeContent()
@@ -69,20 +70,23 @@ struct Authorization: View {
     
     private func makeNextButton() -> some View {
         VStack(alignment: .leading) {
-            Text("failed*")
-                .font(.system(size: 16, weight: .regular))
-                .multilineTextAlignment(.leading)
-                .foregroundStyle(.softRed)
-                .hidden()
+            if let error = error {
+                Text(error.text())
+                    .font(.system(size: 16, weight: .regular))
+                    .multilineTextAlignment(.leading)
+                    .foregroundStyle(.softRed)
+                    .padding(.leading, 20)
+            }
             Button {
                 Task {
-                    isLoading.toggle()
-                    try await viewModel.signIn(with: mail, password: password)
-                    if viewModel.currentUser != nil {
-                        isShowNext.toggle()
+                    if isValidEmail(mail) && isValidPassword(password) {
+                        isLoading.toggle()
+                        try await viewModel.signIn(with: mail, password: password)
+                        if viewModel.currentUser != nil {
+                            isShowNext.toggle()
+                        }
+                        isLoading.toggle()
                     }
-                    print(viewModel.currentUser)
-                    isLoading.toggle()
                 }
             } label: {
                 VStack {
@@ -106,6 +110,19 @@ struct Authorization: View {
             }
             .disabled(isLoading)
         }
+    }
+    
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
+        let result = NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+        error = (result ? nil : .email)
+        return result
+    }
+    
+    private func isValidPassword(_ password: String) -> Bool {
+        let result = password.count >= 6
+        error = (result ? nil : .password)
+        return result
     }
     
 }
