@@ -12,6 +12,7 @@ class ViewModel: ObservableObject {
     
     @Published private(set) var userSession: FirebaseAuth.User?
     @Published private(set) var currentUser: User?
+    @Published var selectedFeedType: FeedType = .none
     
     private let db = Firestore.firestore()
     

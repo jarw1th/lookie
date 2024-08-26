@@ -8,6 +8,17 @@ struct ImageViewCard: View {
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
+            AsyncImage(url: URL(string: url)) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(maxHeight: 240)
+                    .clipped()
+            } placeholder: {
+                Color.gray.frame(height: 150)
+            }
+            .cornerRadius(16)
+            
             Image("Heart")
                 .renderingMode(.template)
                 .foregroundStyle(.backgroundWhite)
@@ -20,17 +31,6 @@ struct ImageViewCard: View {
                 )
                 .padding(.trailing, 4)
                 .padding(.top, 4)
-            
-            AsyncImage(url: URL(string: url)) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(maxHeight: 240)
-                    .clipped()
-            } placeholder: {
-                Color.gray.frame(height: 150)
-            }
-            .cornerRadius(16)
         }
         .frame(maxWidth: .infinity, maxHeight: 240)
     }

@@ -5,8 +5,6 @@ struct Feed: View {
     
     @EnvironmentObject var viewModel: ViewModel
     
-    @State private var selectedType: FeedType = .none
-    
     var body: some View {
         makeContent()
             .background(.backgroundWhite)
@@ -16,13 +14,35 @@ struct Feed: View {
     }
     
     private func makeContent() -> some View {
-        VStack(spacing: 20) {
-            makeTopBar()
-                .padding(.top, 24)
-                .padding(.horizontal, 20)
-            makeFeedTypeBar()
-            makeFeed()
-            Spacer()
+        ZStack(alignment: .bottomTrailing) {
+            VStack(spacing: 20) {
+                makeTopBar()
+                    .padding(.top, 24)
+                    .padding(.horizontal, 20)
+                makeFeedTypeBar()
+                makeFeed()
+                Spacer()
+            }
+            
+            Button {
+                
+            } label: {
+                ZStack(alignment: .center) {
+                    Circle()
+                        .fill(.darkBlue)
+                        .frame(width: 48, height: 48)
+                    
+                    RoundedRectangle(cornerRadius: 2)
+                        .fill(.backgroundWhite)
+                        .frame(width: 20, height: 2)
+                    
+                    RoundedRectangle(cornerRadius: 2)
+                        .fill(.backgroundWhite)
+                        .frame(width: 2, height: 20)
+                }
+                .padding(.trailing, 20)
+                .padding(.bottom, 20)
+            }
         }
     }
     
@@ -76,10 +96,10 @@ struct Feed: View {
     
     private func makePremiumTypeButton(_ type: FeedType) -> some View {
         Button {
-            if (selectedType == type) {
-                selectedType = .none
+            if (viewModel.selectedFeedType == type) {
+                viewModel.selectedFeedType = .none
             } else {
-                selectedType = type
+                viewModel.selectedFeedType = type
             }
         } label: {
             VStack(alignment: .trailing, spacing: 0) {
@@ -98,12 +118,12 @@ struct Feed: View {
                     )
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke((selectedType == type) ? .goldYellow : .clear)
+                            .stroke((viewModel.selectedFeedType == type) ? .goldYellow : .clear)
                             .rotationEffect(.degrees(1))
                     )
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke((selectedType == type) ? .goldYellow : .clear)
+                            .stroke((viewModel.selectedFeedType == type) ? .goldYellow : .clear)
                             .rotationEffect(.degrees(-1))
                     )
             }
@@ -112,10 +132,10 @@ struct Feed: View {
     
     private func makeTypeButton(_ type: FeedType) -> some View {
         Button {
-            if (selectedType == type) {
-                selectedType = .none
+            if (viewModel.selectedFeedType == type) {
+                viewModel.selectedFeedType = .none
             } else {
-                selectedType = type
+                viewModel.selectedFeedType = type
             }
         } label: {
             VStack {
@@ -131,12 +151,12 @@ struct Feed: View {
                     )
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke((selectedType == type) ? .darkBlue : .clear)
+                            .stroke((viewModel.selectedFeedType == type) ? .darkBlue : .clear)
                             .rotationEffect(.degrees(1))
                     )
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke((selectedType == type) ? .darkBlue : .clear)
+                            .stroke((viewModel.selectedFeedType == type) ? .darkBlue : .clear)
                             .rotationEffect(.degrees(-1))
                     )
             }
