@@ -19,6 +19,8 @@
 		215912EC2C7B1BA500930D05 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912EB2C7B1BA500930D05 /* Authorization.swift */; };
 		215912EE2C7B26DA00930D05 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912ED2C7B26DA00930D05 /* User.swift */; };
 		215912F02C7B2B0300930D05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 215912EF2C7B2B0300930D05 /* GoogleService-Info.plist */; };
+		215912F22C7C900C00930D05 /* ShortLook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912F12C7C900C00930D05 /* ShortLook.swift */; };
+		215912F42C7C99AB00930D05 /* BasicStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912F32C7C99AB00930D05 /* BasicStructs.swift */; };
 		2167E7032C63B10E001E4325 /* ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167E7022C63B10E001E4325 /* ProjectApp.swift */; };
 		2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167E7042C63B10E001E4325 /* LoadingScreen.swift */; };
 		2167E7072C63B10F001E4325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167E7062C63B10F001E4325 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 		215912EB2C7B1BA500930D05 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		215912ED2C7B26DA00930D05 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		215912EF2C7B2B0300930D05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		215912F12C7C900C00930D05 /* ShortLook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortLook.swift; sourceTree = "<group>"; };
+		215912F32C7C99AB00930D05 /* BasicStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicStructs.swift; sourceTree = "<group>"; };
 		2167E6FF2C63B10E001E4325 /* lookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2167E7022C63B10E001E4325 /* ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectApp.swift; sourceTree = "<group>"; };
 		2167E7042C63B10E001E4325 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				215912E02C7A5F9B00930D05 /* Enums.swift */,
+				215912F32C7C99AB00930D05 /* BasicStructs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -68,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				215912ED2C7B26DA00930D05 /* User.swift */,
+				215912F12C7C900C00930D05 /* ShortLook.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -227,7 +233,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215912F42C7C99AB00930D05 /* BasicStructs.swift in Sources */,
 				2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */,
+				215912F22C7C900C00930D05 /* ShortLook.swift in Sources */,
 				215912DF2C7A5E6600930D05 /* Feed.swift in Sources */,
 				215912D62C7A09C100930D05 /* AppConstants.swift in Sources */,
 				2167E7032C63B10E001E4325 /* ProjectApp.swift in Sources */,

@@ -3,11 +3,16 @@ import SwiftUI
 
 struct Feed: View {
     
+    @EnvironmentObject var viewModel: ViewModel
+    
     @State private var selectedType: FeedType = .none
     
     var body: some View {
         makeContent()
             .background(.backgroundWhite)
+            .task {
+                await viewModel.fetchShortLook()
+            }
     }
     
     private func makeContent() -> some View {
@@ -139,14 +144,23 @@ struct Feed: View {
     }
     
     private func makeFeed() -> some View {
-        LazyVGrid(columns: [GridItem(), GridItem()], content: {
-            Image("Home")
-            Image("Home")
-            Image("Home")
-            Image("Home")
-            Image("Home")
-            Image("Home")
-        })
+        ScrollView {
+            LazyVGrid(columns: [GridItem(), GridItem()], spacing: 20) {
+                ForEach(viewModel.shortLooks) { lookShort in
+                    ImageViewCard(url: lookShort.imageUrl, isLiked: lookShort.isLiked)
+                }
+                
+                if viewModel.lastShortLookDocument != nil {
+                    ProgressView()
+                        .onAppear {
+                            Task {
+                                await viewModel.fetchShortLook()
+                            }
+                        }
+                }
+            }
+            .padding(.horizontal, 20)
+        }
     }
     
 }

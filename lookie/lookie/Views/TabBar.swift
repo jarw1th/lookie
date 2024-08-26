@@ -23,11 +23,11 @@ struct TabBar: View {
     private func makeViews() -> some View {
         switch tab {
         case .home:
-            Feed()
+            return AnyView(Feed().environmentObject(viewModel))
         case .search:
-            Feed()
+            return AnyView(Feed())
         case .profile:
-            Feed()
+            return AnyView(Feed())
         }
     }
     

@@ -15,6 +15,9 @@ class ViewModel: ObservableObject {
     
     private let db = Firestore.firestore()
     
+    @Published private(set) var shortLooks: [ShortLook] = []
+    private(set) var lastShortLookDocument: DocumentSnapshot?
+    
     init() {
         self.userSession = Auth.auth().currentUser
         Task {
@@ -71,4 +74,37 @@ class ViewModel: ObservableObject {
         return User(id: uid ?? "", email: email)
     }
     
+    func fetchShortLook(_ limit: Int = 20) async {
+        do {
+            var query = db.collection("shortLook").limit(to: limit)
+            
+            if let lastDocument = lastShortLookDocument {
+                query = query.start(afterDocument: lastDocument)
+            }
+
+            let snapshot = try await query.getDocuments()
+            let documents = snapshot.documents
+
+            self.lastShortLookDocument = documents.last
+            
+            let newShortLooks = documents.compactMap { document in
+                var shortLook: ShortLook?
+                do {
+                    shortLook = try document.data(as: ShortLook.self)
+                    shortLook?.id = document.documentID
+                } catch {
+                    print("Error decoding document: \(error)")
+                }
+                return shortLook
+            }
+            
+            DispatchQueue.main.async {
+                self.shortLooks.append(contentsOf: newShortLooks)
+            }
+        } catch {
+            print("Error fetching documents: \(error)")
+        }
+    }
+    
 }
+
