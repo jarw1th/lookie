@@ -171,22 +171,36 @@ struct Feed: View {
     
     private func makeFeed() -> some View {
         ScrollView {
-            LazyVGrid(columns: [GridItem(), GridItem()], spacing: 20) {
-                ForEach(viewModel.shortLooks) { lookShort in
-                    ImageViewCard(url: lookShort.imageUrls.first ?? "", isLiked: lookShort.isLiked)
+            HStack(alignment: .top, spacing: 15) {
+                LazyVStack(alignment: .leading, spacing: 15) {
+                    ForEach(viewModel.shortLooks.indices, id: \.self) { index in
+                        if index % 2 == 0 {
+                            let shortLook = viewModel.shortLooks[index]
+                            ImageViewCard(url: shortLook.imageUrls.first ?? "", isLiked: shortLook.isLiked)
+                        }
+                    }
+                    
+                    if viewModel.lastShortLookDocument != nil {
+                        ProgressView()
+                            .onAppear {
+                                Task {
+                                    await viewModel.fetchShortLook()
+                                }
+                            }
+                    }
                 }
                 
-                if viewModel.lastShortLookDocument != nil {
-                    ProgressView()
-                        .onAppear {
-                            Task {
-                                await viewModel.fetchShortLook()
-                            }
+                LazyVStack(alignment: .leading, spacing: 15) {
+                    ForEach(viewModel.shortLooks.indices, id: \.self) { index in
+                        if index % 2 != 0 {
+                            let shortLook = viewModel.shortLooks[index]
+                            ImageViewCard(url: shortLook.imageUrls.first ?? "", isLiked: shortLook.isLiked)
                         }
+                    }
                 }
             }
-            .padding(.horizontal, 20)
         }
+        .padding(.horizontal, 20)
     }
     
 }
