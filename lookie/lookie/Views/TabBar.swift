@@ -38,7 +38,7 @@ struct TabBar: View {
             } label: {
                 Image("Home")
                     .renderingMode(.template)
-                    .foregroundStyle((tab == .home) ? .goldYellow : .darkBlue)
+                    .foregroundStyle((tab == .home) ? .softRed : .darkBlue)
             }
             
             Button {
@@ -46,14 +46,14 @@ struct TabBar: View {
             } label: {
                 Image("Magnifier")
                     .renderingMode(.template)
-                    .foregroundStyle((tab == .search) ? .goldYellow : .darkBlue)
+                    .foregroundStyle((tab == .search) ? .softRed : .darkBlue)
             }
             
             Button {
                 tab = .profile
             } label: {
                 Image("AvatarPlaceholder")
-                    .foregroundStyle((tab == .profile) ? .goldYellow : .darkBlue)
+                    .foregroundStyle((tab == .profile) ? .softRed : .darkBlue)
             }
         }
         .padding(.top, 15)

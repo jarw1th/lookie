@@ -5,11 +5,17 @@ struct Feed: View {
     
     @EnvironmentObject var viewModel: ViewModel
     
+    @State private var isShowNewlook: Bool = false
+    
     var body: some View {
         makeContent()
             .background(.backgroundWhite)
             .task {
                 await viewModel.fetchShortLook()
+            }
+            .fullScreenCover(isPresented: $isShowNewlook) {
+                NewLook()
+                    .environmentObject(viewModel)
             }
     }
     
@@ -25,7 +31,7 @@ struct Feed: View {
             }
             
             Button {
-                
+                isShowNewlook.toggle()
             } label: {
                 ZStack(alignment: .center) {
                     Circle()
@@ -167,7 +173,7 @@ struct Feed: View {
         ScrollView {
             LazyVGrid(columns: [GridItem(), GridItem()], spacing: 20) {
                 ForEach(viewModel.shortLooks) { lookShort in
-                    ImageViewCard(url: lookShort.imageUrl, isLiked: lookShort.isLiked)
+                    ImageViewCard(url: lookShort.imageUrls.first ?? "", isLiked: lookShort.isLiked)
                 }
                 
                 if viewModel.lastShortLookDocument != nil {

@@ -23,8 +23,8 @@ struct Authorization: View {
             makeLogotype()
                 .padding(.top, 100)
             VStack(spacing: 24) {
-                makeFillField(name: "e-mail", placeholder: "lookie@gmail.com", bind: $mail)
-                makeFillField(name: "password", placeholder: "********", bind: $password)
+                FillField(name: "e-mail", placeholder: "lookie@gmail.com", bind: $mail)
+                FillField(name: "password", placeholder: "********", bind: $password)
                 makeNextButton()
             }
             Spacer()

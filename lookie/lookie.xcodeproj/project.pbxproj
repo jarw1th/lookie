@@ -21,6 +21,11 @@
 		215912F02C7B2B0300930D05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 215912EF2C7B2B0300930D05 /* GoogleService-Info.plist */; };
 		215912F22C7C900C00930D05 /* ShortLook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912F12C7C900C00930D05 /* ShortLook.swift */; };
 		215912F42C7C99AB00930D05 /* BasicStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912F32C7C99AB00930D05 /* BasicStructs.swift */; };
+		215912F62C7F4B0900930D05 /* NewLook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912F52C7F4B0900930D05 /* NewLook.swift */; };
+		215912F92C7F4BB300930D05 /* FillFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912F82C7F4BB300930D05 /* FillFields.swift */; };
+		215912FC2C7F509A00930D05 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912FB2C7F509A00930D05 /* ImagePickerView.swift */; };
+		215912FF2C7F59BD00930D05 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912FE2C7F59BD00930D05 /* View+.swift */; };
+		215913042C7F5B6B00930D05 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 215913032C7F5B6B00930D05 /* FirebaseStorage */; };
 		2167E7032C63B10E001E4325 /* ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167E7022C63B10E001E4325 /* ProjectApp.swift */; };
 		2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167E7042C63B10E001E4325 /* LoadingScreen.swift */; };
 		2167E7072C63B10F001E4325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167E7062C63B10F001E4325 /* Assets.xcassets */; };
@@ -39,6 +44,10 @@
 		215912EF2C7B2B0300930D05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		215912F12C7C900C00930D05 /* ShortLook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortLook.swift; sourceTree = "<group>"; };
 		215912F32C7C99AB00930D05 /* BasicStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicStructs.swift; sourceTree = "<group>"; };
+		215912F52C7F4B0900930D05 /* NewLook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLook.swift; sourceTree = "<group>"; };
+		215912F82C7F4BB300930D05 /* FillFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillFields.swift; sourceTree = "<group>"; };
+		215912FB2C7F509A00930D05 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		215912FE2C7F59BD00930D05 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		2167E6FF2C63B10E001E4325 /* lookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2167E7022C63B10E001E4325 /* ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectApp.swift; sourceTree = "<group>"; };
 		2167E7042C63B10E001E4325 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
@@ -52,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				215912E42C7A762B00930D05 /* FirebaseAnalytics in Frameworks */,
+				215913042C7F5B6B00930D05 /* FirebaseStorage in Frameworks */,
 				215912E62C7A762B00930D05 /* FirebaseAuth in Frameworks */,
 				215912E82C7A762B00930D05 /* FirebaseFirestore in Frameworks */,
 			);
@@ -63,6 +73,9 @@
 		215912CF2C7A08E000930D05 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				215912FD2C7F59AC00930D05 /* SwiftUI */,
+				215912FA2C7F508600930D05 /* UIKit */,
+				215912F72C7F4BA600930D05 /* Structs */,
 				215912E02C7A5F9B00930D05 /* Enums.swift */,
 				215912F32C7C99AB00930D05 /* BasicStructs.swift */,
 			);
@@ -103,6 +116,7 @@
 				215912EB2C7B1BA500930D05 /* Authorization.swift */,
 				215912DC2C7A5AB300930D05 /* TabBar.swift */,
 				215912DE2C7A5E6600930D05 /* Feed.swift */,
+				215912F52C7F4B0900930D05 /* NewLook.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -114,11 +128,43 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		215912F72C7F4BA600930D05 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				215912F82C7F4BB300930D05 /* FillFields.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		215912FA2C7F508600930D05 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				215912FB2C7F509A00930D05 /* ImagePickerView.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		215912FD2C7F59AC00930D05 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				215912FE2C7F59BD00930D05 /* View+.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		215913022C7F5B6B00930D05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2167E6F62C63B10E001E4325 = {
 			isa = PBXGroup;
 			children = (
 				2167E7012C63B10E001E4325 /* lookie */,
 				2167E7002C63B10E001E4325 /* Products */,
+				215913022C7F5B6B00930D05 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,6 +220,7 @@
 				215912E32C7A762B00930D05 /* FirebaseAnalytics */,
 				215912E52C7A762B00930D05 /* FirebaseAuth */,
 				215912E72C7A762B00930D05 /* FirebaseFirestore */,
+				215913032C7F5B6B00930D05 /* FirebaseStorage */,
 			);
 			productName = lookie;
 			productReference = 2167E6FF2C63B10E001E4325 /* lookie.app */;
@@ -233,9 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215912F62C7F4B0900930D05 /* NewLook.swift in Sources */,
 				215912F42C7C99AB00930D05 /* BasicStructs.swift in Sources */,
 				2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */,
 				215912F22C7C900C00930D05 /* ShortLook.swift in Sources */,
+				215912FC2C7F509A00930D05 /* ImagePickerView.swift in Sources */,
 				215912DF2C7A5E6600930D05 /* Feed.swift in Sources */,
 				215912D62C7A09C100930D05 /* AppConstants.swift in Sources */,
 				2167E7032C63B10E001E4325 /* ProjectApp.swift in Sources */,
@@ -243,6 +292,8 @@
 				215912D82C7A0BE600930D05 /* RequestManager.swift in Sources */,
 				215912EC2C7B1BA500930D05 /* Authorization.swift in Sources */,
 				215912EA2C7B153A00930D05 /* ViewModel.swift in Sources */,
+				215912FF2C7F59BD00930D05 /* View+.swift in Sources */,
+				215912F92C7F4BB300930D05 /* FillFields.swift in Sources */,
 				215912EE2C7B26DA00930D05 /* User.swift in Sources */,
 				215912DD2C7A5AB300930D05 /* TabBar.swift in Sources */,
 			);
@@ -479,6 +530,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		215913032C7F5B6B00930D05 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

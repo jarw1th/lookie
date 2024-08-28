@@ -4,6 +4,7 @@ import Firebase
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 @MainActor
 class ViewModel: ObservableObject {
@@ -47,7 +48,6 @@ class ViewModel: ObservableObject {
         } catch {
             print("Authorization Error: \(error.localizedDescription)")
         }
-        
     }
     
     func signOut() {
@@ -85,18 +85,18 @@ class ViewModel: ObservableObject {
 
             let snapshot = try await query.getDocuments()
             let documents = snapshot.documents
-
+            
             self.lastShortLookDocument = documents.last
             
             let newShortLooks = documents.compactMap { document in
-                var shortLook: ShortLook?
                 do {
-                    shortLook = try document.data(as: ShortLook.self)
-                    shortLook?.id = document.documentID
+                    var shortLook = try document.data(as: ShortLook.self)
+                    shortLook.id = document.documentID
+                    return shortLook
                 } catch {
                     print("Error decoding document: \(error)")
+                    return nil
                 }
-                return shortLook
             }
             
             DispatchQueue.main.async {
@@ -105,6 +105,49 @@ class ViewModel: ObservableObject {
         } catch {
             print("Error fetching documents: \(error)")
         }
+    }
+    
+    func createShortLook(images: [UIImage?], feedType: String) async {
+        do {
+            let uploadedImageUrls = try await uploadImages(images)
+
+            let newShortLook = ShortLook(
+                id: nil,
+                imageUrls: uploadedImageUrls,
+                isLiked: false,
+                feedType: feedType
+            )
+            
+            let _ = try db.collection("shortLook").addDocument(from: newShortLook)
+
+            DispatchQueue.main.async {
+                self.shortLooks.append(newShortLook)
+            }
+        } catch {
+            print("Error creating ShortLook: \(error)")
+        }
+    }
+    
+    private func uploadImages(_ images: [UIImage?]) async throws -> [String] {
+        let images: [UIImage] = images.compactMap { $0 }
+        var imageURLs: [String] = []
+        
+        for (index, image) in images.enumerated() {
+            let storageRef = Storage.storage().reference().child("shortLooks/\(UUID().uuidString)/image\(index).jpg")
+            
+            guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+                continue
+            }
+            
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            
+            let _ = try await storageRef.putDataAsync(imageData, metadata: metadata)
+            let downloadURL = try await storageRef.downloadURL()
+            imageURLs.append(downloadURL.absoluteString)
+        }
+        
+        return imageURLs
     }
     
 }
