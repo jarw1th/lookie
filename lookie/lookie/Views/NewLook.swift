@@ -86,7 +86,7 @@ struct NewLook: View {
                 
                 RoundedRectangle(cornerRadius: 2)
                     .fill(.backgroundWhite)
-                    .frame(width: 2, height: 20)
+                    .frame(width: 20, height: 2)
                     .rotationEffect(.degrees(135))
             }
         }

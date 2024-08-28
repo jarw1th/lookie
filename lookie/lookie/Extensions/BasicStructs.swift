@@ -19,18 +19,17 @@ struct ImageViewCard: View {
             }
             .cornerRadius(16)
             
-            Image("Heart")
+            Image("HeartFill")
                 .renderingMode(.template)
                 .foregroundStyle(.backgroundWhite)
                 .background(
                     Circle()
                         .fill(.black)
                         .opacity(0.26)
-                        .frame(width: 28, height: 28)
-                        .blur(radius: 6)
+                        .frame(width: 40, height: 40)
                 )
-                .padding(.trailing, 4)
-                .padding(.top, 4)
+                .padding(.trailing, 24)
+                .padding(.top, 24)
         }
         .frame(maxWidth: .infinity, maxHeight: 240)
     }
