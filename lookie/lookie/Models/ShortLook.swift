@@ -8,5 +8,6 @@ struct ShortLook: Identifiable, Codable, Hashable {
     var imageUrls: [String]
     var isLiked: Bool
     var feedType: String
+    var tags: [String]
     
 }

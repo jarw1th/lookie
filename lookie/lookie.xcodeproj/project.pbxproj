@@ -12,9 +12,6 @@
 		215912DD2C7A5AB300930D05 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912DC2C7A5AB300930D05 /* TabBar.swift */; };
 		215912DF2C7A5E6600930D05 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912DE2C7A5E6600930D05 /* Feed.swift */; };
 		215912E12C7A5F9B00930D05 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912E02C7A5F9B00930D05 /* Enums.swift */; };
-		215912E42C7A762B00930D05 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 215912E32C7A762B00930D05 /* FirebaseAnalytics */; };
-		215912E62C7A762B00930D05 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 215912E52C7A762B00930D05 /* FirebaseAuth */; };
-		215912E82C7A762B00930D05 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 215912E72C7A762B00930D05 /* FirebaseFirestore */; };
 		215912EA2C7B153A00930D05 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912E92C7B153A00930D05 /* ViewModel.swift */; };
 		215912EC2C7B1BA500930D05 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912EB2C7B1BA500930D05 /* Authorization.swift */; };
 		215912EE2C7B26DA00930D05 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912ED2C7B26DA00930D05 /* User.swift */; };
@@ -25,11 +22,12 @@
 		215912F92C7F4BB300930D05 /* FillFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912F82C7F4BB300930D05 /* FillFields.swift */; };
 		215912FC2C7F509A00930D05 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912FB2C7F509A00930D05 /* ImagePickerView.swift */; };
 		215912FF2C7F59BD00930D05 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912FE2C7F59BD00930D05 /* View+.swift */; };
-		215913042C7F5B6B00930D05 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 215913032C7F5B6B00930D05 /* FirebaseStorage */; };
+		215913062C805CB300930D05 /* AIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215913052C805CB300930D05 /* AIManager.swift */; };
 		2167E7032C63B10E001E4325 /* ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167E7022C63B10E001E4325 /* ProjectApp.swift */; };
 		2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167E7042C63B10E001E4325 /* LoadingScreen.swift */; };
 		2167E7072C63B10F001E4325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167E7062C63B10F001E4325 /* Assets.xcassets */; };
 		2167E70A2C63B10F001E4325 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167E7092C63B10F001E4325 /* Preview Assets.xcassets */; };
+		27149B93C88606A7E3FF6FF7 /* Pods_lookie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B6BB7796E615477618C9D5 /* Pods_lookie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,11 +46,15 @@
 		215912F82C7F4BB300930D05 /* FillFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillFields.swift; sourceTree = "<group>"; };
 		215912FB2C7F509A00930D05 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		215912FE2C7F59BD00930D05 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		215913052C805CB300930D05 /* AIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIManager.swift; sourceTree = "<group>"; };
 		2167E6FF2C63B10E001E4325 /* lookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2167E7022C63B10E001E4325 /* ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectApp.swift; sourceTree = "<group>"; };
 		2167E7042C63B10E001E4325 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		2167E7062C63B10F001E4325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2167E7092C63B10F001E4325 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		403272C98F2D1EF7AAAF2F57 /* Pods-lookie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookie.release.xcconfig"; path = "Target Support Files/Pods-lookie/Pods-lookie.release.xcconfig"; sourceTree = "<group>"; };
+		B2B6BB7796E615477618C9D5 /* Pods_lookie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lookie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF3410D8DFB5A686D72288F5 /* Pods-lookie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookie.debug.xcconfig"; path = "Target Support Files/Pods-lookie/Pods-lookie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				215912E42C7A762B00930D05 /* FirebaseAnalytics in Frameworks */,
-				215913042C7F5B6B00930D05 /* FirebaseStorage in Frameworks */,
-				215912E62C7A762B00930D05 /* FirebaseAuth in Frameworks */,
-				215912E82C7A762B00930D05 /* FirebaseFirestore in Frameworks */,
+				27149B93C88606A7E3FF6FF7 /* Pods_lookie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +93,7 @@
 		215912D22C7A092000930D05 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				215913072C805D4F00930D05 /* MLModels */,
 				215912D92C7A0DF600930D05 /* Fonts */,
 				2167E7062C63B10F001E4325 /* Assets.xcassets */,
 			);
@@ -103,8 +103,9 @@
 		215912D32C7A092900930D05 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				215912D72C7A0BE600930D05 /* RequestManager.swift */,
 				215912E92C7B153A00930D05 /* ViewModel.swift */,
+				215912D72C7A0BE600930D05 /* RequestManager.swift */,
+				215913052C805CB300930D05 /* AIManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -152,11 +153,11 @@
 			path = SwiftUI;
 			sourceTree = "<group>";
 		};
-		215913022C7F5B6B00930D05 /* Frameworks */ = {
+		215913072C805D4F00930D05 /* MLModels */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Frameworks;
+			path = MLModels;
 			sourceTree = "<group>";
 		};
 		2167E6F62C63B10E001E4325 = {
@@ -164,7 +165,8 @@
 			children = (
 				2167E7012C63B10E001E4325 /* lookie */,
 				2167E7002C63B10E001E4325 /* Products */,
-				215913022C7F5B6B00930D05 /* Frameworks */,
+				BFA32257698E180D753F7E9B /* Pods */,
+				C04F5ABFFFEC3E8BA62065BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,6 +202,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		BFA32257698E180D753F7E9B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF3410D8DFB5A686D72288F5 /* Pods-lookie.debug.xcconfig */,
+				403272C98F2D1EF7AAAF2F57 /* Pods-lookie.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C04F5ABFFFEC3E8BA62065BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2B6BB7796E615477618C9D5 /* Pods_lookie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,21 +226,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2167E70D2C63B10F001E4325 /* Build configuration list for PBXNativeTarget "lookie" */;
 			buildPhases = (
+				37DB7B152C2F56C025FA115B /* [CP] Check Pods Manifest.lock */,
 				2167E6FB2C63B10E001E4325 /* Sources */,
 				2167E6FC2C63B10E001E4325 /* Frameworks */,
 				2167E6FD2C63B10E001E4325 /* Resources */,
+				9B39CD0ACA31A96FFD88DC8E /* [CP] Embed Pods Frameworks */,
+				CC2F5AA4571EC7041ACD7C5F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = lookie;
-			packageProductDependencies = (
-				215912E32C7A762B00930D05 /* FirebaseAnalytics */,
-				215912E52C7A762B00930D05 /* FirebaseAuth */,
-				215912E72C7A762B00930D05 /* FirebaseFirestore */,
-				215913032C7F5B6B00930D05 /* FirebaseStorage */,
-			);
 			productName = lookie;
 			productReference = 2167E6FF2C63B10E001E4325 /* lookie.app */;
 			productType = "com.apple.product-type.application";
@@ -250,9 +266,6 @@
 				Base,
 			);
 			mainGroup = 2167E6F62C63B10E001E4325;
-			packageReferences = (
-				215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-			);
 			productRefGroup = 2167E7002C63B10E001E4325 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -275,6 +288,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		37DB7B152C2F56C025FA115B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lookie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B39CD0ACA31A96FFD88DC8E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC2F5AA4571EC7041ACD7C5F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2167E6FB2C63B10E001E4325 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -282,6 +354,7 @@
 			files = (
 				215912F62C7F4B0900930D05 /* NewLook.swift in Sources */,
 				215912F42C7C99AB00930D05 /* BasicStructs.swift in Sources */,
+				215913062C805CB300930D05 /* AIManager.swift in Sources */,
 				2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */,
 				215912F22C7C900C00930D05 /* ShortLook.swift in Sources */,
 				215912FC2C7F509A00930D05 /* ImagePickerView.swift in Sources */,
@@ -423,6 +496,7 @@
 		};
 		2167E70E2C63B10F001E4325 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF3410D8DFB5A686D72288F5 /* Pods-lookie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -431,6 +505,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"lookie/Preview Content\"";
 				DEVELOPMENT_TEAM = QN6RC23FCQ;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Lookie;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -453,6 +528,7 @@
 		};
 		2167E70F2C63B10F001E4325 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 403272C98F2D1EF7AAAF2F57 /* Pods-lookie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -461,6 +537,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"lookie/Preview Content\"";
 				DEVELOPMENT_TEAM = QN6RC23FCQ;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Lookie;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -503,40 +580,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.1.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		215912E32C7A762B00930D05 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		215912E52C7A762B00930D05 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		215912E72C7A762B00930D05 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		215913032C7F5B6B00930D05 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 215912E22C7A762B00930D05 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2167E6F72C63B10E001E4325 /* Project object */;
 }

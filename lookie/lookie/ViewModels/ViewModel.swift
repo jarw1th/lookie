@@ -1,15 +1,16 @@
 
 import SwiftUI
-import Firebase
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
 
 @MainActor
-class ViewModel: ObservableObject {
+final class ViewModel: ObservableObject {
     
     static let shared = ViewModel()
+    
+    @State private var aiManager: AIManager = AIManager()
     
     @Published private(set) var userSession: FirebaseAuth.User?
     @Published private(set) var currentUser: User?
@@ -100,7 +101,7 @@ class ViewModel: ObservableObject {
             }
             
             let uniqueLooks = newShortLooks.filter { newLook in
-                !self.shortLooks.contains(newLook)
+                !self.shortLooks.contains(where: { $0.id == newLook.id })
             }
             
             DispatchQueue.main.async {
@@ -113,13 +114,31 @@ class ViewModel: ObservableObject {
     
     func createShortLook(images: [UIImage?], feedType: String) async {
         do {
+            let validImages = images.compactMap { $0 }
             let uploadedImageUrls = try await uploadImages(images)
 
+            let tags = await withTaskGroup(of: String?.self) { group -> [String] in
+                for image in validImages {
+                    group.addTask {
+                        return try? await self.aiManager.analyzeImage(image: image)
+                    }
+                }
+
+                var combinedTags: [String] = []
+                for await tag in group {
+                    if let tag = tag {
+                        combinedTags.append(tag)
+                    }
+                }
+                return combinedTags
+            }
+            
             let newShortLook = ShortLook(
                 id: nil,
                 imageUrls: uploadedImageUrls,
                 isLiked: false,
-                feedType: feedType
+                feedType: feedType,
+                tags: tags
             )
             
             let _ = try db.collection("shortLook").addDocument(from: newShortLook)
@@ -130,6 +149,16 @@ class ViewModel: ObservableObject {
         } catch {
             print("Error creating ShortLook: \(error)")
         }
+    }
+    
+    func imageData(from image: UIImage) -> Data? {
+        // Attempt to get JPEG data first
+        if let jpegData = image.jpegData(compressionQuality: 0.9) {
+            return jpegData
+        }
+        
+        // Fallback to PNG data if JPEG conversion fails
+        return image.pngData()
     }
     
     private func uploadImages(_ images: [UIImage?]) async throws -> [String] {
@@ -168,7 +197,13 @@ class ViewModel: ObservableObject {
             
             try document.setData(from: look, merge: false)
             
-            completion?()
+            if let index = shortLooks.firstIndex(where: { $0.id == look.id }) {
+                shortLooks[index] = look
+            }
+            
+            DispatchQueue.main.async {
+                completion?()
+            }
         } catch {
             print("Error updating document: \(error)")
         }

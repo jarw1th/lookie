@@ -1,7 +1,7 @@
 
 import Foundation
 import FirebaseFirestore
-import Firebase
+import FirebaseCore
 import FirebaseAuth
 
 struct User: Identifiable, Codable, Hashable {
