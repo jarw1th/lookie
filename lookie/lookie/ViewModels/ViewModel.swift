@@ -99,8 +99,12 @@ class ViewModel: ObservableObject {
                 }
             }
             
+            let uniqueLooks = newShortLooks.filter { newLook in
+                !self.shortLooks.contains(newLook)
+            }
+            
             DispatchQueue.main.async {
-                self.shortLooks.append(contentsOf: newShortLooks)
+                self.shortLooks.append(contentsOf: uniqueLooks)
             }
         } catch {
             print("Error fetching documents: \(error)")
@@ -148,6 +152,30 @@ class ViewModel: ObservableObject {
         }
         
         return imageURLs
+    }
+    
+    func update(_ look: ShortLook, completion: (() -> Void)?) async {
+        do {
+            var look = look
+            look.isLiked.toggle()
+            
+            guard let id = look.id else {
+                print("Document ID is nil")
+                return
+            }
+            
+            let document = db.collection("shortLook").document(id)
+            
+            try document.setData(from: look, merge: false)
+            
+            completion?()
+        } catch {
+            print("Error updating document: \(error)")
+        }
+    }
+    
+    func update(_ look: ShortLook) async {
+        await update(look, completion: nil)
     }
     
 }

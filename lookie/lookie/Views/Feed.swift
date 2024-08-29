@@ -175,8 +175,13 @@ struct Feed: View {
                 LazyVStack(alignment: .leading, spacing: 15) {
                     ForEach(viewModel.shortLooks.indices, id: \.self) { index in
                         if index % 2 == 0 {
-                            let shortLook = viewModel.shortLooks[index]
-                            ImageViewCard(url: shortLook.imageUrls.first ?? "", isLiked: shortLook.isLiked)
+                            var shortLook = viewModel.shortLooks[index]
+                            ImageViewCard(url: shortLook.imageUrls.first ?? "", isLiked: shortLook.isLiked, likeAction: {
+                                Task {
+                                    await viewModel.update(shortLook)
+                                    shortLook.isLiked.toggle()
+                                }
+                            })
                         }
                     }
                     
@@ -193,8 +198,13 @@ struct Feed: View {
                 LazyVStack(alignment: .leading, spacing: 15) {
                     ForEach(viewModel.shortLooks.indices, id: \.self) { index in
                         if index % 2 != 0 {
-                            let shortLook = viewModel.shortLooks[index]
-                            ImageViewCard(url: shortLook.imageUrls.first ?? "", isLiked: shortLook.isLiked)
+                            var shortLook = viewModel.shortLooks[index]
+                            ImageViewCard(url: shortLook.imageUrls.first ?? "", isLiked: shortLook.isLiked, likeAction: {
+                                Task {
+                                    await viewModel.update(shortLook)
+                                    shortLook.isLiked.toggle()
+                                }
+                            })
                         }
                     }
                 }
