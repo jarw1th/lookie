@@ -11,6 +11,8 @@ struct NewLook: View {
     @State private var images: [Image] = []
     @State private var image: UIImage? = nil
     
+    @State private var isLoading: Bool = false
+    
     var body: some View {
         makeContent()
             .background(.backgroundWhite)
@@ -94,16 +96,24 @@ struct NewLook: View {
     
     private func makeCompleteButton() -> some View {
         Button {
-            completeAction()
+            if !isLoading {
+                completeAction()
+            }
         } label: {
             ZStack(alignment: .center) {
                 Circle()
                     .fill(.softGreen)
                     .frame(width: 48, height: 48)
                 
-                Image("Check")
-                    .renderingMode(.template)
-                    .foregroundStyle(.backgroundWhite)
+                if isLoading {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .tint(.backgroundWhite)
+                } else {
+                    Image("Check")
+                        .renderingMode(.template)
+                        .foregroundStyle(.backgroundWhite)
+                }
             }
         }
     }
@@ -112,7 +122,9 @@ struct NewLook: View {
         guard name.count > 4 else { return }
         let uiImages: [UIImage?] = images.map { $0.toUIImage() }
         Task {
+            isLoading = true
             await viewModel.createShortLook(images: uiImages, feedType: feedType)
+            isLoading = false
             dismiss()
         }
     }

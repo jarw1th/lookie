@@ -76,7 +76,8 @@ struct LoadingScreen: View {
     
     private func checkConnectivityAndProceed() {
         Task {
-            if await requestManager.checkInternetConnectivity(withDelay: true) {
+            if await requestManager.checkInternetConnectivity(withDelay: false) {
+                await viewModel.fetchUser()
                 isShowNext = true
             } else {
                 isLoading = false

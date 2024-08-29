@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		201433ADEE4E42F7FECCE52E /* Pods_lookie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9558A8DA04F0FF2DCC894223 /* Pods_lookie.framework */; };
 		215912D62C7A09C100930D05 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912D52C7A09C100930D05 /* AppConstants.swift */; };
 		215912D82C7A0BE600930D05 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912D72C7A0BE600930D05 /* RequestManager.swift */; };
 		215912DD2C7A5AB300930D05 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215912DC2C7A5AB300930D05 /* TabBar.swift */; };
@@ -27,7 +28,6 @@
 		2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167E7042C63B10E001E4325 /* LoadingScreen.swift */; };
 		2167E7072C63B10F001E4325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167E7062C63B10F001E4325 /* Assets.xcassets */; };
 		2167E70A2C63B10F001E4325 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167E7092C63B10F001E4325 /* Preview Assets.xcassets */; };
-		27149B93C88606A7E3FF6FF7 /* Pods_lookie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B6BB7796E615477618C9D5 /* Pods_lookie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,9 +52,9 @@
 		2167E7042C63B10E001E4325 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		2167E7062C63B10F001E4325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2167E7092C63B10F001E4325 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		403272C98F2D1EF7AAAF2F57 /* Pods-lookie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookie.release.xcconfig"; path = "Target Support Files/Pods-lookie/Pods-lookie.release.xcconfig"; sourceTree = "<group>"; };
-		B2B6BB7796E615477618C9D5 /* Pods_lookie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lookie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF3410D8DFB5A686D72288F5 /* Pods-lookie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookie.debug.xcconfig"; path = "Target Support Files/Pods-lookie/Pods-lookie.debug.xcconfig"; sourceTree = "<group>"; };
+		31BCBA493D6C252829094C23 /* Pods-lookie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookie.release.xcconfig"; path = "Target Support Files/Pods-lookie/Pods-lookie.release.xcconfig"; sourceTree = "<group>"; };
+		9558A8DA04F0FF2DCC894223 /* Pods_lookie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lookie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBA0BE28DF9906FF8855C850 /* Pods-lookie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookie.debug.xcconfig"; path = "Target Support Files/Pods-lookie/Pods-lookie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27149B93C88606A7E3FF6FF7 /* Pods_lookie.framework in Frameworks */,
+				201433ADEE4E42F7FECCE52E /* Pods_lookie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +166,7 @@
 				2167E7012C63B10E001E4325 /* lookie */,
 				2167E7002C63B10E001E4325 /* Products */,
 				BFA32257698E180D753F7E9B /* Pods */,
-				C04F5ABFFFEC3E8BA62065BE /* Frameworks */,
+				8845A2C30A12C971D00E33EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,21 +202,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		8845A2C30A12C971D00E33EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9558A8DA04F0FF2DCC894223 /* Pods_lookie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BFA32257698E180D753F7E9B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FF3410D8DFB5A686D72288F5 /* Pods-lookie.debug.xcconfig */,
-				403272C98F2D1EF7AAAF2F57 /* Pods-lookie.release.xcconfig */,
+				BBA0BE28DF9906FF8855C850 /* Pods-lookie.debug.xcconfig */,
+				31BCBA493D6C252829094C23 /* Pods-lookie.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		C04F5ABFFFEC3E8BA62065BE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B2B6BB7796E615477618C9D5 /* Pods_lookie.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,12 +226,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2167E70D2C63B10F001E4325 /* Build configuration list for PBXNativeTarget "lookie" */;
 			buildPhases = (
-				37DB7B152C2F56C025FA115B /* [CP] Check Pods Manifest.lock */,
+				71EC619E3D9770EF16F5A7F7 /* [CP] Check Pods Manifest.lock */,
 				2167E6FB2C63B10E001E4325 /* Sources */,
 				2167E6FC2C63B10E001E4325 /* Frameworks */,
 				2167E6FD2C63B10E001E4325 /* Resources */,
-				9B39CD0ACA31A96FFD88DC8E /* [CP] Embed Pods Frameworks */,
-				CC2F5AA4571EC7041ACD7C5F /* [CP] Copy Pods Resources */,
+				A2FE260C81A101B2D1EE687A /* [CP] Embed Pods Frameworks */,
+				0711C53E0AA1E2F733B61DE4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,7 +289,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		37DB7B152C2F56C025FA115B /* [CP] Check Pods Manifest.lock */ = {
+		0711C53E0AA1E2F733B61DE4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71EC619E3D9770EF16F5A7F7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -311,7 +328,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9B39CD0ACA31A96FFD88DC8E /* [CP] Embed Pods Frameworks */ = {
+		A2FE260C81A101B2D1EE687A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -326,23 +343,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC2F5AA4571EC7041ACD7C5F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lookie/Pods-lookie-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -496,7 +496,7 @@
 		};
 		2167E70E2C63B10F001E4325 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF3410D8DFB5A686D72288F5 /* Pods-lookie.debug.xcconfig */;
+			baseConfigurationReference = BBA0BE28DF9906FF8855C850 /* Pods-lookie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -528,7 +528,7 @@
 		};
 		2167E70F2C63B10F001E4325 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 403272C98F2D1EF7AAAF2F57 /* Pods-lookie.release.xcconfig */;
+			baseConfigurationReference = 31BCBA493D6C252829094C23 /* Pods-lookie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

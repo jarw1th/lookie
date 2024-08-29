@@ -1,5 +1,6 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '15.0'
+platform :ios, '15.0'
+source 'https://github.com/CocoaPods/Specs.git'
 
 target 'lookie' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,6 +8,7 @@ target 'lookie' do
 
   # Pods for lookie
   pod 'GoogleMLKit/ImageLabeling'
+  pod 'GoogleMLKit/ObjectDetection'
   pod 'FirebaseAnalytics'
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
