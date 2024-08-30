@@ -26,7 +26,7 @@ final class AIManager: ObservableObject {
                 let dominantColor = self.dominantColor(in: image) ?? "Unknown color"
                                 
                 let tags = labels.map { $0.text }.joined(separator: ", ")
-                let result = "\(tags) - Color: \(dominantColor)"
+                let result = "\(tags), Dominant Color: (\(dominantColor))"
                 
                 continuation.resume(returning: result)
             }

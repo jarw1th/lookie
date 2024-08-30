@@ -1,5 +1,6 @@
 
 import SwiftUI
+import CachedAsyncImage
 
 struct ImageViewCard: View {
     
@@ -9,15 +10,15 @@ struct ImageViewCard: View {
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            AsyncImage(url: URL(string: url)) { image in
+            CachedAsyncImage(url: URL(string: url), content: { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(maxHeight: 240)
                     .clipped()
-            } placeholder: {
-                Color.gray.frame(height: 150)
-            }
+            }, placeholder: {
+                Color.gray.frame(height: 240)
+            })
             .cornerRadius(16)
             
             Button {
