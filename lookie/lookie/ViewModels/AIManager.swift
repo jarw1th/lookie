@@ -1,8 +1,19 @@
 
 import UIKit
 import MLKit
+import CoreML
+import Vision
 
 final class AIManager: ObservableObject {
+
+    private var model: FashionClassifierWithSubclasses?
+    
+    private let primaryClassLabels = ["accessories", "bottomwear", "footwear", "one-piece", "upperwear"]
+    private let subclassLabels = ["bag", "hat", "pants", "shorts", "skirt", "flats", "heels", "shoes", "sneakers", "dress", "jacket", "shirt", "tshirt"]
+    
+    init() {
+        loadFashionClassifierModel()
+    }
     
     func analyzeImage(image: UIImage) async throws -> String {
         let visionImage = VisionImage(image: image)
@@ -25,12 +36,64 @@ final class AIManager: ObservableObject {
                 
                 let dominantColor = self.dominantColor(in: image) ?? "Unknown color"
                                 
-                let tags = labels.map { $0.text }.joined(separator: ", ")
-                let result = "\(tags), Dominant Color: (\(dominantColor))"
+                let googleTags = labels.map { $0.text }.joined(separator: ", ")
+                let classifierTags = self.classifyImageToClasses(image)
+                let result = "\(googleTags), \(classifierTags), Dominant Color: (\(dominantColor))"
                 
                 continuation.resume(returning: result)
             }
         }
+    }
+    
+    private func loadFashionClassifierModel() {
+        do {
+            model = try FashionClassifierWithSubclasses(configuration: MLModelConfiguration())
+        } catch {
+            print("Failed to load model: \(error.localizedDescription)")
+        }
+    }
+    
+    private func classifyImageToClasses(_ image: UIImage) -> String {
+        guard let model = model else {
+            return "Model not loaded"
+        }
+
+        guard let multiArray = image.convertToMultiArray() else {
+            return "Failed to convert image to MultiArray"
+        }
+
+        do {
+            let prediction = try model.prediction(input: FashionClassifierWithSubclassesInput(input_1: multiArray))
+            
+            let primaryOutput = prediction.Identity
+            let subclassOutput = prediction.Identity_1
+
+            let topPrimaryLabels = getTopClassLabel(from: primaryOutput, labels: primaryClassLabels)
+            let topSubclassLabels = getTopClassLabel(from: subclassOutput, labels: subclassLabels)
+
+            return "\(topPrimaryLabels), \(topSubclassLabels)"
+        } catch {
+            return "Error: \(error.localizedDescription)"
+        }
+    }
+    
+    private func getTopClassLabel(from multiArray: MLMultiArray, labels: [String]) -> String {
+        let values = multiArray.dataPointer.bindMemory(to: Float32.self, capacity: multiArray.count)
+        let count = multiArray.shape[1].intValue
+        
+        var indexedValues: [(index: Int, value: Float32)] = []
+        for i in 0..<count {
+            indexedValues.append((index: i, value: values[i]))
+        }
+
+        indexedValues.sort { $0.value > $1.value }
+
+        guard let topIndex = indexedValues.first?.index else {
+            return "Unknown"
+        }
+        let topLabel = labels[topIndex]
+
+        return topLabel
     }
     
     private func dominantColor(in image: UIImage) -> String? {

@@ -29,6 +29,8 @@
 		2167E7072C63B10F001E4325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167E7062C63B10F001E4325 /* Assets.xcassets */; };
 		2167E70A2C63B10F001E4325 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167E7092C63B10F001E4325 /* Preview Assets.xcassets */; };
 		21BDB3502C820E7D0097F90E /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 21BDB34F2C820E7D0097F90E /* CachedAsyncImage */; };
+		21BDB3582C82224F0097F90E /* FashionClassifierWithSubclasses.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 21BDB3572C82224F0097F90E /* FashionClassifierWithSubclasses.mlpackage */; };
+		21BDB35B2C82246F0097F90E /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDB35A2C82246F0097F90E /* UIImage+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		2167E7042C63B10E001E4325 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 		2167E7062C63B10F001E4325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2167E7092C63B10F001E4325 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		21BDB3572C82224F0097F90E /* FashionClassifierWithSubclasses.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = FashionClassifierWithSubclasses.mlpackage; sourceTree = "<group>"; };
+		21BDB35A2C82246F0097F90E /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		31BCBA493D6C252829094C23 /* Pods-lookie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookie.release.xcconfig"; path = "Target Support Files/Pods-lookie/Pods-lookie.release.xcconfig"; sourceTree = "<group>"; };
 		9558A8DA04F0FF2DCC894223 /* Pods_lookie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lookie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA0BE28DF9906FF8855C850 /* Pods-lookie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookie.debug.xcconfig"; path = "Target Support Files/Pods-lookie/Pods-lookie.debug.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				215912FB2C7F509A00930D05 /* ImagePickerView.swift */,
+				21BDB35A2C82246F0097F90E /* UIImage+.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 		215913072C805D4F00930D05 /* MLModels */ = {
 			isa = PBXGroup;
 			children = (
+				21BDB3572C82224F0097F90E /* FashionClassifierWithSubclasses.mlpackage */,
 			);
 			path = MLModels;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 				215913062C805CB300930D05 /* AIManager.swift in Sources */,
 				2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */,
 				215912F22C7C900C00930D05 /* ShortLook.swift in Sources */,
+				21BDB3582C82224F0097F90E /* FashionClassifierWithSubclasses.mlpackage in Sources */,
 				215912FC2C7F509A00930D05 /* ImagePickerView.swift in Sources */,
 				215912DF2C7A5E6600930D05 /* Feed.swift in Sources */,
 				215912D62C7A09C100930D05 /* AppConstants.swift in Sources */,
@@ -377,6 +384,7 @@
 				215912F92C7F4BB300930D05 /* FillFields.swift in Sources */,
 				215912EE2C7B26DA00930D05 /* User.swift in Sources */,
 				215912DD2C7A5AB300930D05 /* TabBar.swift in Sources */,
+				21BDB35B2C82246F0097F90E /* UIImage+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

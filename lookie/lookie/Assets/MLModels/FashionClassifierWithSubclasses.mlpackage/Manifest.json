@@ -1,0 +1,24 @@
+{
+    "fileFormatVersion": "1.0.0",
+    "itemInfoEntries": {
+        "60DB2C38-8995-4299-901C-E0A635A6591B": {
+            "author": "com.apple.CoreML",
+            "description": "External Metadata Overlay",
+            "name": "Metadata.json",
+            "path": "com.apple.CoreML/Metadata.json"
+        },
+        "6BB21774-EF91-439A-9122-7CEC10B044A5": {
+            "author": "com.apple.CoreML",
+            "description": "CoreML Model Specification",
+            "name": "FashionClassifierWithSubclasses.mlmodel",
+            "path": "com.apple.CoreML/FashionClassifierWithSubclasses.mlmodel"
+        },
+        "EFEC0BEF-2B3A-4C7C-BBF0-0D47184142EE": {
+            "author": "com.apple.CoreML",
+            "description": "External FeatureDescription Overlay",
+            "name": "FeatureDescriptions.json",
+            "path": "com.apple.CoreML/FeatureDescriptions.json"
+        }
+    },
+    "rootModelIdentifier": "6BB21774-EF91-439A-9122-7CEC10B044A5"
+}
