@@ -26,7 +26,7 @@ Lookie is the app that gives you an opportunity to find a cool outfit. It works 
 - *Platform:* SwiftUI
 - *Architecture:* MVVM
 - *Data / Cache:* Realm and User Defaults
-- *Frameworks:* Firebase
+- *Frameworks:* Firebase, Google ML Kit, CachedAsyncImage, CoreML
 - *Languages:* English 
 
 **Screenshots**
