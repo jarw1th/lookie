@@ -28,7 +28,6 @@
 		2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2167E7042C63B10E001E4325 /* LoadingScreen.swift */; };
 		2167E7072C63B10F001E4325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167E7062C63B10F001E4325 /* Assets.xcassets */; };
 		2167E70A2C63B10F001E4325 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2167E7092C63B10F001E4325 /* Preview Assets.xcassets */; };
-		21BDB3502C820E7D0097F90E /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 21BDB34F2C820E7D0097F90E /* CachedAsyncImage */; };
 		21BDB3582C82224F0097F90E /* FashionClassifierWithSubclasses.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 21BDB3572C82224F0097F90E /* FashionClassifierWithSubclasses.mlpackage */; };
 		21BDB35B2C82246F0097F90E /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDB35A2C82246F0097F90E /* UIImage+.swift */; };
 /* End PBXBuildFile section */
@@ -68,7 +67,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				201433ADEE4E42F7FECCE52E /* Pods_lookie.framework in Frameworks */,
-				21BDB3502C820E7D0097F90E /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,7 +245,6 @@
 			);
 			name = lookie;
 			packageProductDependencies = (
-				21BDB34F2C820E7D0097F90E /* CachedAsyncImage */,
 			);
 			productName = lookie;
 			productReference = 2167E6FF2C63B10E001E4325 /* lookie.app */;
@@ -278,7 +275,6 @@
 			);
 			mainGroup = 2167E6F62C63B10E001E4325;
 			packageReferences = (
-				21BDB34E2C820E7D0097F90E /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = 2167E7002C63B10E001E4325 /* Products */;
 			projectDirPath = "";
@@ -596,25 +592,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		21BDB34E2C820E7D0097F90E /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		21BDB34F2C820E7D0097F90E /* CachedAsyncImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 21BDB34E2C820E7D0097F90E /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
-			productName = CachedAsyncImage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2167E6F72C63B10E001E4325 /* Project object */;
 }

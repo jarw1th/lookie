@@ -1,6 +1,6 @@
 
 import SwiftUI
-import CachedAsyncImage
+import SDWebImageSwiftUI
 
 struct ImageViewCard: View {
     
@@ -10,15 +10,18 @@ struct ImageViewCard: View {
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            CachedAsyncImage(url: URL(string: url), content: { image in
+            WebImage(url: URL(string: url), content: { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(maxHeight: 240)
                     .clipped()
+                    .cornerRadius(16)
             }, placeholder: {
                 Color.gray.frame(height: 240)
+                    .cornerRadius(16)
             })
+            .indicator(.activity)
             .cornerRadius(16)
             
             Button {

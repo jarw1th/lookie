@@ -4,6 +4,7 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
+import SDWebImageSwiftUI
 
 @MainActor
 final class ViewModel: ObservableObject {
@@ -23,6 +24,14 @@ final class ViewModel: ObservableObject {
     
     init() {
         self.userSession = Auth.auth().currentUser
+        configureImageCache()
+    }
+    
+    private func configureImageCache() {
+        let cache = SDImageCache(namespace: "tiny")
+        cache.config.maxDiskAge = 24 * 60 * 60
+        cache.config.maxDiskSize = 100 * 1024 * 1024
+        SDImageCachesManager.shared.addCache(cache)
     }
     
     func signIn(with email: String, password: String) async throws {
