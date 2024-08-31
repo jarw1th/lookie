@@ -8,13 +8,15 @@ You should clone the repository.
 ```
 cd disk-location
 git clone repository link
+cd lookie
+pod install
 ```
 
 ## About the project
 
 **Description**
 
-Lookie is the app that gives you an opportunity to find a cool outfit. It works almost like Pinterest but much better, and it will make you wardrope fashionable.
+Lookie is the app that gives you an opportunity to find a cool outfit. It works almost like Pinterest but much better, and it will make you wardrope fashionable. Also you can generate ai images and download them.
 
 **Usefull**
  
@@ -23,10 +25,10 @@ Lookie is the app that gives you an opportunity to find a cool outfit. It works 
 **Basic Information**
 
 - *Spent Time:* 1 week (in progress...)
-- *Platform:* SwiftUI
+- *Platform:* SwiftUI / UIKit
 - *Architecture:* MVVM
 - *Data / Cache:* Realm and User Defaults
-- *Frameworks:* Firebase, Google ML Kit, CachedAsyncImage, CoreML
+- *Frameworks:* Firebase, Google ML Kit, SDWebImageSwiftUI, CoreML, PhoneNumberKit, Alamofire
 - *Languages:* English 
 
 **Screenshots**

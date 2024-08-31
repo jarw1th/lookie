@@ -12,6 +12,7 @@ final class ViewModel: ObservableObject {
     static let shared = ViewModel()
     
     @State private var aiManager: AIManager = AIManager()
+    @State private var networkManager: NetworkManager = NetworkManager()
     
     @Published private(set) var userSession: FirebaseAuth.User?
     @Published private(set) var currentUser: User?
@@ -217,6 +218,11 @@ final class ViewModel: ObservableObject {
     
     func update(_ look: ShortLook) async {
         await update(look, completion: nil)
+    }
+    
+    func generateImage(_ text: String) async -> String {
+        let imageUrl = try? await networkManager.generateImage(prompt: text)
+        return imageUrl ?? ""
     }
     
 }

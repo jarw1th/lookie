@@ -6,6 +6,7 @@ struct Feed: View {
     @EnvironmentObject var viewModel: ViewModel
     
     @State private var isShowNewlook: Bool = false
+    @State private var isShowGenerateImage: Bool = false
     
     var body: some View {
         makeContent()
@@ -15,6 +16,10 @@ struct Feed: View {
             }
             .fullScreenCover(isPresented: $isShowNewlook) {
                 NewLook()
+                    .environmentObject(viewModel)
+            }
+            .fullScreenCover(isPresented: $isShowGenerateImage) {
+                GenerateImage()
                     .environmentObject(viewModel)
             }
     }
@@ -30,25 +35,11 @@ struct Feed: View {
                 Spacer()
             }
             
-            Button {
+            AddButton(newAction: {
                 isShowNewlook.toggle()
-            } label: {
-                ZStack(alignment: .center) {
-                    Circle()
-                        .fill(.darkBlue)
-                        .frame(width: 48, height: 48)
-                    
-                    RoundedRectangle(cornerRadius: 2)
-                        .fill(.backgroundWhite)
-                        .frame(width: 20, height: 2)
-                    
-                    RoundedRectangle(cornerRadius: 2)
-                        .fill(.backgroundWhite)
-                        .frame(width: 2, height: 20)
-                }
-                .padding(.trailing, 20)
-                .padding(.bottom, 20)
-            }
+            }, generateAction: {
+                isShowGenerateImage.toggle()
+            })
         }
     }
     

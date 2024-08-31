@@ -15,13 +15,24 @@ final class AIManager: ObservableObject {
         loadFashionClassifierModel()
     }
     
-    func analyzeImage(image: UIImage) async throws -> String {
+    func analyzeImage(image: UIImage) async -> String {
+        let googleTags = try? await processImageLabels(image: image)
+        let dominantColor = self.dominantColor(in: image) ?? "Unknown color"
+        
+        let classifierTags = self.classifyImageToClasses(image)
+        
+        let result = "\(googleTags ?? ""), \(classifierTags), Dominant Color: (\(dominantColor))"
+        return result
+    }
+    
+    private func processImageLabels(image: UIImage) async throws -> String {
         let visionImage = VisionImage(image: image)
         visionImage.orientation = image.imageOrientation
         
         let options = ImageLabelerOptions()
         options.confidenceThreshold = 0.7
         let labeler = ImageLabeler.imageLabeler(options: options)
+        
         return try await withCheckedThrowingContinuation { continuation in
             labeler.process(visionImage) { labels, error in
                 if let error = error {
@@ -34,13 +45,8 @@ final class AIManager: ObservableObject {
                     return
                 }
                 
-                let dominantColor = self.dominantColor(in: image) ?? "Unknown color"
-                                
                 let googleTags = labels.map { $0.text }.joined(separator: ", ")
-                let classifierTags = self.classifyImageToClasses(image)
-                let result = "\(googleTags), \(classifierTags), Dominant Color: (\(dominantColor))"
-                
-                continuation.resume(returning: result)
+                continuation.resume(returning: googleTags)
             }
         }
     }

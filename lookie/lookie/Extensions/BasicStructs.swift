@@ -45,3 +45,42 @@ struct ImageViewCard: View {
     }
     
 }
+
+struct GeneratedImageCard: View {
+    
+    let url: String
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("image")
+                .font(.system(size: 16, weight: .regular))
+                .multilineTextAlignment(.center)
+                .foregroundStyle(.softRed)
+            Button {
+               
+            } label: {
+                VStack {
+                    WebImage(url: URL(string: url), content: { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 180, height: 180)
+                            .clipped()
+                            .cornerRadius(16)
+                    }, placeholder: {
+                        Color.gray.frame(width: 180, height: 180)
+                            .cornerRadius(16)
+                    })
+                    .indicator(.activity)
+                    .cornerRadius(16)
+                }
+                .frame(width: 200, height: 200)
+                .background(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(.darkBlue)
+                )
+            }
+        }
+    }
+    
+}
