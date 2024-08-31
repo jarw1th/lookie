@@ -5,7 +5,7 @@ import SwiftUI
 
 class NetworkManager: ObservableObject {
     
-    private let openAiToken = ""
+    private let openAiToken = "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"
     private let baseURL = "https://api.openai.com/v1/images/generations"
     
     func generateImage(prompt: String) async throws -> String {
