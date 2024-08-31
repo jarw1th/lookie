@@ -25,9 +25,9 @@ struct TabBar: View {
         case .home:
             return AnyView(Feed().environmentObject(viewModel))
         case .search:
-            return AnyView(Feed())
+            return AnyView(Search().environmentObject(viewModel))
         case .profile:
-            return AnyView(Feed())
+            return AnyView(Profile().environmentObject(viewModel))
         }
     }
     
