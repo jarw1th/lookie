@@ -40,7 +40,7 @@ struct ProfileBar: View {
     }
     
     private func makeContent() -> some View {
-        HStack {
+        HStack(spacing: 16) {
             WebImage(url: URL(string: ""), content: { image in
                 image
                     .resizable()

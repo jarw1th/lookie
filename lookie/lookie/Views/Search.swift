@@ -47,8 +47,9 @@ struct Search: View {
     }
     
     private func makeRecommendations() -> some View {
-        VStack {
-            
+        VStack(spacing: 7) {
+            LongCard(header: "For you", name: "Women", numberOfItems: 1, images: [Image("ImagePlaceholder")]) {}
+            LongCard(header: "Popular", name: "Women’s bags", numberOfItems: 1, images: [Image("ImagePlaceholder")]) {}
         }
     }
     

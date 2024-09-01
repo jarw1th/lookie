@@ -13,6 +13,7 @@ final class ViewModel: ObservableObject {
     
     @State private var aiManager: AIManager = AIManager()
     @State private var networkManager: NetworkManager = NetworkManager()
+    @State private var locationManager: LocationManager = LocationManager()
     
     @Published private(set) var userSession: FirebaseAuth.User?
     @Published private(set) var currentUser: User?
@@ -223,6 +224,15 @@ final class ViewModel: ObservableObject {
     func generateImage(_ text: String) async -> String {
         let imageUrl = try? await networkManager.generateImage(prompt: text)
         return imageUrl ?? ""
+    }
+    
+    func fetchWeather() async -> WeatherResponse? {
+        guard let location = locationManager.location else {
+            return nil
+        }
+
+        let weatherResponse = try? await networkManager.getWeather(for: location.coordinate)
+        return weatherResponse
     }
     
 }
