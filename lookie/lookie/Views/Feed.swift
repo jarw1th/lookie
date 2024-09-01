@@ -5,158 +5,35 @@ struct Feed: View {
     
     @EnvironmentObject var viewModel: ViewModel
     
-    @State private var isShowNewlook: Bool = false
-    @State private var isShowGenerateImage: Bool = false
-    
     var body: some View {
         makeContent()
             .background(.backgroundWhite)
             .task {
                 await viewModel.fetchShortLook()
             }
-            .fullScreenCover(isPresented: $isShowNewlook) {
-                NewLook()
-                    .environmentObject(viewModel)
-            }
-            .fullScreenCover(isPresented: $isShowGenerateImage) {
-                GenerateImage()
-                    .environmentObject(viewModel)
-            }
     }
     
     private func makeContent() -> some View {
-        ZStack(alignment: .bottomTrailing) {
-            VStack(spacing: 20) {
-                makeTopBar()
-                    .padding(.top, 24)
-                    .padding(.horizontal, 20)
-                makeFeedTypeBar()
-                makeFeed()
-                Spacer()
-            }
-            
-            AddButton(newAction: {
-                isShowNewlook.toggle()
-            }, generateAction: {
-                isShowGenerateImage.toggle()
-            })
-        }
-    }
-    
-    private func makeTopBar() -> some View {
-        HStack {
-            Text("Feed")
-                .font(.system(size: 72, weight: .bold))
-                .multilineTextAlignment(.leading)
-                .foregroundStyle(.darkBlue)
+        VStack(spacing: 24) {
+            makeFeedTypeBar()
+            makeFeed()
             Spacer()
-            makePremiumButton()
         }
-    }
-    
-    private func makePremiumButton() -> some View {
-        Button {
-            
-        } label: {
-            HStack(spacing: 8) {
-                VStack(spacing: -4) {
-                    Text("buy")
-                        .font(.system(size: 24, weight: .medium))
-                        .multilineTextAlignment(.center)
-                        .foregroundStyle(.goldYellow)
-                    Text("pro")
-                        .font(.system(size: 24, weight: .medium))
-                        .multilineTextAlignment(.center)
-                        .foregroundStyle(.goldYellow)
-                }
-                Image("RightArrow")
-                    .renderingMode(.template)
-                    .foregroundStyle(.goldYellow)
-            }
-        }
+        .padding(.top, 24)
     }
     
     private func makeFeedTypeBar() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(alignment: .bottom, spacing: 14) {
+            HStack(alignment: .bottom, spacing: 7) {
                 ForEach(FeedType.allCases.filter { $0 != .none }, id: \.self) { type in
                     if type.isPremium() {
-                        makePremiumTypeButton(type)
+                        PremiumTypeButton(type: type, selectedType: $viewModel.selectedFeedType)
                     } else {
-                        makeTypeButton(type)
+                        TypeButton(type: type, selectedType: $viewModel.selectedFeedType)
                     }
                 }
             }
             .padding()
-        }
-    }
-    
-    private func makePremiumTypeButton(_ type: FeedType) -> some View {
-        Button {
-            if (viewModel.selectedFeedType == type) {
-                viewModel.selectedFeedType = .none
-            } else {
-                viewModel.selectedFeedType = type
-            }
-        } label: {
-            VStack(alignment: .trailing, spacing: 0) {
-                Image("Star")
-                    .renderingMode(.template)
-                    .foregroundStyle(.goldYellow)
-                Text(type.text() ?? "")
-                    .font(.system(size: 15, weight: .medium))
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(.darkBlue)
-                    .padding(.horizontal, 36)
-                    .padding(.vertical, 6)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(.goldYellow)
-                    )
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke((viewModel.selectedFeedType == type) ? .goldYellow : .clear)
-                            .rotationEffect(.degrees(1))
-                    )
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke((viewModel.selectedFeedType == type) ? .goldYellow : .clear)
-                            .rotationEffect(.degrees(-1))
-                    )
-            }
-        }
-    }
-    
-    private func makeTypeButton(_ type: FeedType) -> some View {
-        Button {
-            if (viewModel.selectedFeedType == type) {
-                viewModel.selectedFeedType = .none
-            } else {
-                viewModel.selectedFeedType = type
-            }
-        } label: {
-            VStack {
-                Text(type.text() ?? "")
-                    .font(.system(size: 15, weight: .medium))
-                    .multilineTextAlignment(.center)
-                    .foregroundStyle(.darkBlue)
-                    .padding(.horizontal, 36)
-                    .padding(.vertical, 6)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(.darkBlue)
-                    )
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke((viewModel.selectedFeedType == type) ? .darkBlue : .clear)
-                            .rotationEffect(.degrees(1))
-                    )
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke((viewModel.selectedFeedType == type) ? .darkBlue : .clear)
-                            .rotationEffect(.degrees(-1))
-                    )
-            }
         }
     }
     

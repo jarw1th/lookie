@@ -8,6 +8,7 @@ struct LoadingScreen: View {
     @StateObject private var requestManager = RequestManager.shared
     @State private var isLoading: Bool = true
     @State private var isShowNext: Bool = false
+    @State private var rotation: Double = 0
     
     var body: some View {
         makeContent()
@@ -17,19 +18,15 @@ struct LoadingScreen: View {
     
     private func makeContent() -> some View {
         ZStack {
-            VStack(spacing: 0) {
+            VStack {
                 Spacer()
-                if isLoading {
-                    makeLoader()
-                } else {
-                    makeAlertButton()
-                }
+                makeLoader()
                 Spacer()
             }
-            VStack(spacing: 0) {
+            VStack {
                 Spacer()
-                makeAlertText()
-                    .padding(.bottom, 38)
+                makeButton()
+                    .padding(.bottom, 108)
             }
         }
         .fullScreenCover(isPresented: $isShowNext) {
@@ -48,30 +45,34 @@ struct LoadingScreen: View {
     }
     
     private func makeLoader() -> some View {
-        Text("Lookie")
-            .font(.system(size: 88, weight: .regular))
-            .multilineTextAlignment(.center)
-            .foregroundStyle(.darkBlue)
+        Image("Refreshing")
+            .renderingMode(.template)
+            .resizable()
+            .foregroundStyle(.softBlue)
+            .frame(width: 100, height: 100)
+            .rotationEffect(.degrees(rotation))
+            .onAppear {
+                startRotation()
+            }
     }
     
-    private func makeAlertText() -> some View {
-        Text(isLoading ? "fashion is here" : "no internet")
-            .font(.system(size: 16, weight: .regular))
-            .multilineTextAlignment(.center)
-            .foregroundStyle(isLoading ? .darkBlue : .softRed)
-    }
-    
-    private func makeAlertButton() -> some View {
+    private func makeButton() -> some View {
         Button {
             isLoading.toggle()
             checkConnectivityAndProceed()
         } label: {
-            Text("Reload")
-                .underline()
-                .font(.system(size: 24, weight: .regular))
+            Text(isLoading ? "Loading..." : "Reload")
+                .font(.system(size: 16, weight: .medium))
                 .multilineTextAlignment(.center)
-                .foregroundStyle(.darkBlue)
+                .foregroundStyle(isLoading ? .softBlue : .white)
+                .padding(.vertical, 14)
+                .frame(maxHeight: 48)
+                .background(
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(isLoading ? .backgroundWhite : .rose)
+                )
         }
+        .disabled(isLoading)
     }
     
     private func checkConnectivityAndProceed() {
@@ -82,6 +83,17 @@ struct LoadingScreen: View {
             } else {
                 isLoading = false
             }
+        }
+    }
+    
+    private func startRotation() {
+        guard isLoading else { return }
+        
+        withAnimation(
+            Animation.linear(duration: 1)
+                .repeatForever(autoreverses: false)
+        ) {
+            rotation = 360
         }
     }
     

@@ -36,6 +36,12 @@
 		21BDB3682C8369520097F90E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDB3672C8369520097F90E /* NetworkManager.swift */; };
 		21BDB36A2C83779F0097F90E /* GenerateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDB3692C83779F0097F90E /* GenerateImage.swift */; };
 		21BDB36C2C837C5E0097F90E /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDB36B2C837C5E0097F90E /* AddButton.swift */; };
+		21BDB36F2C8474130097F90E /* TT Travels Next Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21BDB36E2C8474130097F90E /* TT Travels Next Regular.ttf */; };
+		21BDB3712C8474DD0097F90E /* TopBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDB3702C8474DD0097F90E /* TopBars.swift */; };
+		21BDB3732C84783B0097F90E /* PagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDB3722C84783B0097F90E /* PagesManager.swift */; };
+		21BDB3752C847BAA0097F90E /* AuthorizationAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDB3742C847BAA0097F90E /* AuthorizationAvatar.swift */; };
+		21BDB3772C847F6B0097F90E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDB3762C847F6B0097F90E /* Notifications.swift */; };
+		21BDB3792C8482140097F90E /* TypeButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BDB3782C8482140097F90E /* TypeButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +74,12 @@
 		21BDB3672C8369520097F90E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		21BDB3692C83779F0097F90E /* GenerateImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateImage.swift; sourceTree = "<group>"; };
 		21BDB36B2C837C5E0097F90E /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		21BDB36E2C8474130097F90E /* TT Travels Next Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TT Travels Next Regular.ttf"; sourceTree = "<group>"; };
+		21BDB3702C8474DD0097F90E /* TopBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBars.swift; sourceTree = "<group>"; };
+		21BDB3722C84783B0097F90E /* PagesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesManager.swift; sourceTree = "<group>"; };
+		21BDB3742C847BAA0097F90E /* AuthorizationAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationAvatar.swift; sourceTree = "<group>"; };
+		21BDB3762C847F6B0097F90E /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		21BDB3782C8482140097F90E /* TypeButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeButtons.swift; sourceTree = "<group>"; };
 		31BCBA493D6C252829094C23 /* Pods-lookie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookie.release.xcconfig"; path = "Target Support Files/Pods-lookie/Pods-lookie.release.xcconfig"; sourceTree = "<group>"; };
 		9558A8DA04F0FF2DCC894223 /* Pods_lookie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lookie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA0BE28DF9906FF8855C850 /* Pods-lookie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookie.debug.xcconfig"; path = "Target Support Files/Pods-lookie/Pods-lookie.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +135,7 @@
 				215912D72C7A0BE600930D05 /* RequestManager.swift */,
 				215913052C805CB300930D05 /* AIManager.swift */,
 				21BDB3672C8369520097F90E /* NetworkManager.swift */,
+				21BDB3722C84783B0097F90E /* PagesManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -131,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				2167E7042C63B10E001E4325 /* LoadingScreen.swift */,
-				215912EB2C7B1BA500930D05 /* Authorization.swift */,
+				21BDB36D2C8473DA0097F90E /* Authorization */,
 				215912DC2C7A5AB300930D05 /* TabBar.swift */,
 				215912DE2C7A5E6600930D05 /* Feed.swift */,
 				21BDB3692C83779F0097F90E /* GenerateImage.swift */,
@@ -145,6 +158,7 @@
 		215912D92C7A0DF600930D05 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				21BDB36E2C8474130097F90E /* TT Travels Next Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -155,6 +169,8 @@
 				215912F82C7F4BB300930D05 /* FillFields.swift */,
 				21BDB35E2C8258AB0097F90E /* SearchBar.swift */,
 				21BDB36B2C837C5E0097F90E /* AddButton.swift */,
+				21BDB3702C8474DD0097F90E /* TopBars.swift */,
+				21BDB3782C8482140097F90E /* TypeButtons.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -224,6 +240,16 @@
 				2167E7092C63B10F001E4325 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		21BDB36D2C8473DA0097F90E /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				215912EB2C7B1BA500930D05 /* Authorization.swift */,
+				21BDB3742C847BAA0097F90E /* AuthorizationAvatar.swift */,
+				21BDB3762C847F6B0097F90E /* Notifications.swift */,
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 		8845A2C30A12C971D00E33EA /* Frameworks */ = {
@@ -309,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2167E70A2C63B10F001E4325 /* Preview Assets.xcassets in Resources */,
+				21BDB36F2C8474130097F90E /* TT Travels Next Regular.ttf in Resources */,
 				2167E7072C63B10F001E4325 /* Assets.xcassets in Resources */,
 				21BDB3662C8366BB0097F90E /* GoogleService-Info.plist in Resources */,
 			);
@@ -382,6 +409,7 @@
 			files = (
 				215912F62C7F4B0900930D05 /* NewLook.swift in Sources */,
 				215912F42C7C99AB00930D05 /* BasicStructs.swift in Sources */,
+				21BDB3772C847F6B0097F90E /* Notifications.swift in Sources */,
 				215913062C805CB300930D05 /* AIManager.swift in Sources */,
 				21BDB36C2C837C5E0097F90E /* AddButton.swift in Sources */,
 				2167E7052C63B10E001E4325 /* LoadingScreen.swift in Sources */,
@@ -392,11 +420,15 @@
 				215912D62C7A09C100930D05 /* AppConstants.swift in Sources */,
 				2167E7032C63B10E001E4325 /* ProjectApp.swift in Sources */,
 				215912E12C7A5F9B00930D05 /* Enums.swift in Sources */,
+				21BDB3752C847BAA0097F90E /* AuthorizationAvatar.swift in Sources */,
 				215912D82C7A0BE600930D05 /* RequestManager.swift in Sources */,
 				21BDB36A2C83779F0097F90E /* GenerateImage.swift in Sources */,
 				215912EC2C7B1BA500930D05 /* Authorization.swift in Sources */,
+				21BDB3792C8482140097F90E /* TypeButtons.swift in Sources */,
 				215912EA2C7B153A00930D05 /* ViewModel.swift in Sources */,
 				21BDB35F2C8258AB0097F90E /* SearchBar.swift in Sources */,
+				21BDB3732C84783B0097F90E /* PagesManager.swift in Sources */,
+				21BDB3712C8474DD0097F90E /* TopBars.swift in Sources */,
 				215912FF2C7F59BD00930D05 /* View+.swift in Sources */,
 				215912F92C7F4BB300930D05 /* FillFields.swift in Sources */,
 				215912EE2C7B26DA00930D05 /* User.swift in Sources */,
@@ -463,7 +495,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -520,7 +552,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -548,7 +580,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -580,7 +612,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

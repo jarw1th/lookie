@@ -53,3 +53,9 @@ enum AuthorizationErrorType {
     }
     
 }
+
+enum AuthorizationPages: CaseIterable {
+    
+    case fields, avatar, notifications
+    
+}

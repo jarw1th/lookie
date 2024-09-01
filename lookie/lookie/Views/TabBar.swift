@@ -32,13 +32,15 @@ struct TabBar: View {
     }
     
     private func makeTabs() -> some View {
-        HStack(spacing: 48) {
+        HStack(spacing: 32) {
             Button {
                 tab = .home
             } label: {
                 Image("Home")
                     .renderingMode(.template)
-                    .foregroundStyle((tab == .home) ? .softRed : .darkBlue)
+                    .resizable()
+                    .foregroundStyle((tab == .home) ? .rose : .softBlue)
+                    .frame(width: 24, height: 24)
             }
             
             Button {
@@ -46,14 +48,19 @@ struct TabBar: View {
             } label: {
                 Image("Magnifier")
                     .renderingMode(.template)
-                    .foregroundStyle((tab == .search) ? .softRed : .darkBlue)
+                    .resizable()
+                    .foregroundStyle((tab == .search) ? .rose : .softBlue)
+                    .frame(width: 24, height: 24)
             }
             
             Button {
                 tab = .profile
             } label: {
-                Image("AvatarPlaceholder")
-                    .foregroundStyle((tab == .profile) ? .softRed : .darkBlue)
+                Image("Profile")
+                    .renderingMode(.template)
+                    .resizable()
+                    .foregroundStyle((tab == .profile) ? .rose : .softBlue)
+                    .frame(width: 24, height: 24)
             }
         }
         .padding(.top, 15)
@@ -61,7 +68,7 @@ struct TabBar: View {
         .frame(maxWidth: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 40)
-                .foregroundStyle(.backgroundWhite)
+                .foregroundStyle(.white)
         )
     }
     

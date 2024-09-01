@@ -20,16 +20,16 @@ struct AddButton: View {
                     isOpened.toggle()
                 } label: {
                     VStack {
-                        Text("New")
-                            .font(.system(size: 24, weight: .medium))
+                        Text("New Look")
+                            .font(.system(size: 14, weight: .medium))
                             .multilineTextAlignment(.center)
-                            .foregroundStyle(.backgroundWhite)
+                            .foregroundStyle(.white)
                     }
-                    .padding(.horizontal, 20)
+                    .padding(.horizontal, 24)
                     .frame(height: 48)
                     .background(
-                        RoundedRectangle(cornerRadius: 30)
-                            .foregroundStyle(.softGreen)
+                        RoundedRectangle(cornerRadius: 8)
+                            .foregroundStyle(.rose)
                     )
                 }
                 
@@ -38,16 +38,16 @@ struct AddButton: View {
                     isOpened.toggle()
                 } label: {
                     VStack {
-                        Text("Generate")
-                            .font(.system(size: 24, weight: .medium))
+                        Text("Generate Image")
+                            .font(.system(size: 14, weight: .medium))
                             .multilineTextAlignment(.center)
-                            .foregroundStyle(.backgroundWhite)
+                            .foregroundStyle(.white)
                     }
-                    .padding(.horizontal, 20)
+                    .padding(.horizontal, 24)
                     .frame(height: 48)
                     .background(
-                        RoundedRectangle(cornerRadius: 30)
-                            .foregroundStyle(.goldYellow)
+                        RoundedRectangle(cornerRadius: 8)
+                            .foregroundStyle(.rose)
                     )
                 }
             }
@@ -56,17 +56,17 @@ struct AddButton: View {
                 isOpened.toggle()
             } label: {
                 ZStack(alignment: .center) {
-                    Circle()
-                        .fill(isOpened ? .softRed : .darkBlue)
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(isOpened ? .softBlue : .rose)
                         .frame(width: 48, height: 48)
                     
                     RoundedRectangle(cornerRadius: 2)
-                        .fill(.backgroundWhite)
+                        .fill(.white)
                         .frame(width: 20, height: 2)
                         .rotationEffect(isOpened ? .degrees(45) : .degrees(0))
                     
                     RoundedRectangle(cornerRadius: 2)
-                        .fill(.backgroundWhite)
+                        .fill(.white)
                         .frame(width: 2, height: 20)
                         .rotationEffect(isOpened ? .degrees(45) : .degrees(0))
                 }

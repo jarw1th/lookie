@@ -13,27 +13,15 @@ struct Search: View {
     }
     
     private func makeContent() -> some View {
-        ZStack(alignment: .bottomTrailing) {
-            VStack(spacing: 20) {
-                makeTopBar()
-                    .padding(.top, 24)
-                    .padding(.horizontal, 20)
-                makeSearchBar()
-                makeRecommendations()
-                Spacer()
-            }
-        }
-    }
-    
-    private func makeTopBar() -> some View {
-        HStack {
-            Text("Search")
-                .font(.system(size: 72, weight: .bold))
-                .multilineTextAlignment(.leading)
-                .foregroundStyle(.darkBlue)
+        VStack(spacing: 20) {
+            SearchBar(placeholder: "Outfit of the day", bind: $searchText, action: {
+                
+            })
+            makeRecommendations()
             Spacer()
-            makePremiumButton()
         }
+        .padding(.top, 24)
+        .padding(.horizontal, 20)
     }
     
     private func makePremiumButton() -> some View {
@@ -55,12 +43,6 @@ struct Search: View {
                     .renderingMode(.template)
                     .foregroundStyle(.goldYellow)
             }
-        }
-    }
-    
-    private func makeSearchBar() -> some View {
-        VStack {
-            SearchBar(placeholder: "Generic text", bind: $searchText)
         }
     }
     

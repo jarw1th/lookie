@@ -12,6 +12,7 @@ struct Authorization: View {
     @State private var isShowNext: Bool = false
     @State private var error: AuthorizationErrorType?
     
+    @available(iOS 16.0, *)
     var body: some View {
         makeContent()
             .background(.backgroundWhite)
@@ -20,63 +21,30 @@ struct Authorization: View {
     
     private func makeContent() -> some View {
         VStack(spacing: 64) {
-            makeLogotype()
-                .padding(.top, 100)
+            TopBar(buttonContent: {}, buttonAction: nil)
             VStack(spacing: 24) {
-                FillField(name: "e-mail", placeholder: "lookie@gmail.com", bind: $mail)
-                FillField(name: "password", placeholder: "********", bind: $password)
-                makeNextButton()
+                FillField(name: "Your e-mail", placeholder: "lookie@gmail.com", bind: $mail)
+                FillField(name: "Password", placeholder: "********", bind: $password)
             }
             Spacer()
+            makeNextButton()
         }
+        .padding(.top, 24)
+        .padding(.bottom, 108)
         .padding(.horizontal, 20)
         .frame(maxWidth: .infinity)
         .frame(maxHeight: .infinity)
-        .fullScreenCover(isPresented: $isShowNext) {
-            TabBar()
-                .environmentObject(viewModel)
+        .onAppear {
+            PagesManager.shared.currentAuthorizationPage = .fields
         }
-    }
-    
-    private func makeLogotype() -> some View {
-        Text("Lookie")
-            .font(.system(size: 88, weight: .regular))
-            .multilineTextAlignment(.center)
-            .foregroundStyle(.softRed)
-    }
-    
-    private func makeFillField(name: String, placeholder: String, bind: Binding<String>) -> some View {
-        VStack(alignment: .leading) {
-            Text(name)
-                .font(.system(size: 16, weight: .regular))
-                .multilineTextAlignment(.leading)
-                .foregroundStyle(.softRed)
-                .padding(.leading, 20)
-            VStack {
-                TextField(placeholder, text: bind)
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                    .font(.system(size: 24, weight: .regular))
-                    .foregroundStyle(.darkBlue)
-            }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 12)
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .stroke(.darkBlue)
-            )
+        .navigationDestination(isPresented: $isShowNext) {
+            AuthorizationAvatar()
+                .environmentObject(viewModel)
         }
     }
     
     private func makeNextButton() -> some View {
         VStack(alignment: .leading) {
-            if let error = error {
-                Text(error.text())
-                    .font(.system(size: 16, weight: .regular))
-                    .multilineTextAlignment(.leading)
-                    .foregroundStyle(.softRed)
-                    .padding(.leading, 20)
-            }
             Button {
                 Task {
                     if isValidEmail(mail) && isValidPassword(password) {
@@ -84,6 +52,8 @@ struct Authorization: View {
                         try await viewModel.signIn(with: mail, password: password)
                         if viewModel.currentUser != nil {
                             isShowNext.toggle()
+                        } else {
+                            error = .email
                         }
                         isLoading.toggle()
                     }
@@ -93,19 +63,19 @@ struct Authorization: View {
                     if isLoading {
                         ProgressView()
                             .progressViewStyle(.circular)
-                            .tint(.backgroundWhite)
+                            .tint(.white)
                     } else {
                         Text("Next")
-                            .font(.system(size: 24, weight: .medium))
+                            .font(.system(size: 16, weight: .medium))
                             .multilineTextAlignment(.center)
-                            .foregroundStyle(.backgroundWhite)
+                            .foregroundStyle(.white)
                     }
                 }
                 .frame(maxWidth: .infinity)
-                .frame(height: 45)
+                .frame(maxHeight: 48)
                 .background(
-                    RoundedRectangle(cornerRadius: 12)
-                        .foregroundStyle(.softRed)
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(error != nil ? .softBlue : .rose)
                 )
             }
             .disabled(isLoading)

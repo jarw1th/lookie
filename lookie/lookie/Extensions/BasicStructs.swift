@@ -18,28 +18,13 @@ struct ImageViewCard: View {
                     .clipped()
                     .cornerRadius(16)
             }, placeholder: {
-                Color.gray.frame(height: 240)
+                Color
+                    .white
+                    .frame(height: 240)
                     .cornerRadius(16)
             })
             .indicator(.activity)
             .cornerRadius(16)
-            
-            Button {
-                likeAction()
-                isLiked.toggle()
-            } label: {
-                Image("HeartFill")
-                    .renderingMode(.template)
-                    .foregroundStyle(isLiked ? .darkBlue : .backgroundWhite)
-                    .background(
-                        Circle()
-                            .fill(isLiked ? .backgroundWhite : .darkBlue)
-                            .opacity(isLiked ? 1.0 : 0.26)
-                            .frame(width: 40, height: 40)
-                    )
-                    .padding(.trailing, 24)
-                    .padding(.top, 24)
-            }
         }
         .frame(maxWidth: .infinity, maxHeight: 240)
     }
